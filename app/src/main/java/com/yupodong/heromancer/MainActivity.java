@@ -40,4 +40,9 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+    public void onClick_finish(View view)
+    {
+        finish();
+    }
 }
