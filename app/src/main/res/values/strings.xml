@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_sub">SubActivity</string>
+
+    <string-array name = "LAN">
+        <item>"새로시작"</item>
+        <item>"이어하기"</item>
+    </string-array>
+</resources>
