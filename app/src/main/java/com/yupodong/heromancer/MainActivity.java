@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    public void ClicktoSetting(View view)
+    {
+        Intent intent = new Intent(this, Setting.class);
+        intent.putExtra("data", "Test Popup");
+        startActivityForResult(intent, 1);
     }
 
     public void onClick_finish(View view)
