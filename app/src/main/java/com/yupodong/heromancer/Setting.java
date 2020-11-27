@@ -18,7 +18,9 @@ public class Setting extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
     }
 
+
     @Override
+    //바깥레이어 클릭 시 안닫히는 옵션
     public boolean onTouchEvent(MotionEvent event) {
         if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
             return false;
