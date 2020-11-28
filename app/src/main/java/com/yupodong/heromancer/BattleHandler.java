@@ -27,6 +27,9 @@ public class BattleHandler {
     private ChatUI chatui;
     private BattleWindow window;
     private Random random=new Random();
+    private Drawable d;
+    private clickevent c;
+    private battle endfunc;
 
     //상태
     private int turn=0;//0~maxturn-1까지만
@@ -57,6 +60,9 @@ public class BattleHandler {
 
         this.chatui=new ChatUI(chat,con,c);
         this.window=new BattleWindow(window,con,playernum,mobnum,c);
+        d=c.getResources().getDrawable(R.color.강제처형);
+        this.c=c;
+        endfunc=(battle)con;
 
         int num;
         for (int i=0;i<mobnum;i++){
@@ -105,10 +111,11 @@ public class BattleHandler {
 
     //스레드가 끝나고 일정시간이 있어야 적용되서 이러는 것으로 추정 (스레드 안에서 스레드를 한번서 실행 시키는 것으로 해결)
     //재귀지만 길어야 4번 실행이기에 문제 없음
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void next_turn()  {
         //다음턴으로
-        if (turn <= mobnum && enemy[turn].isLive()) {//공격자가 있는지 확인
-
+        if (turn <= mobnum && enemy[turn].isLive())//공격자가 있는지 확인
+        {
             int target=random.nextInt(99);
             for (int i=0; i<4;i++){
                 if(target<attack_per[i]){
@@ -116,35 +123,44 @@ public class BattleHandler {
                     break;
                 }
             }
-            if(target>3) return; //혹시 타겟 설정이 안되었을 경우를 대비한 것
-
 
             PlayerAttack(target);
-            window.test(Integer.toString(attack_per[0])+" "+Integer.toString(attack_per[1])+" "+Integer.toString(attack_per[2])+" "+Integer.toString(attack_per[3]));
+
 
         }
         turn = (turn + 1) % maxturn;
-        //(디)버프 처리
-        totalTurn++;
-        for (int i=0;i<4;i++){
-            if(enemy[i].isLive()){
-                enemy[i].buff_check(totalTurn);
-            }
-            if(friendly[i].isLive()){
-                friendly[i].buff_check(totalTurn);
-            }
-        }
+        window.test(Integer.toString(turn));
 
-        if (turn>=playernum || !friendly[turn].isLive()) {//turn이 플레이어 수보다 같고고높거나, 현재 차례인 애가 살아있지 않을 시
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    next_turn();
-                }
-            },750);
+        if(turn!=0){
+            if (turn<playernum && friendly[turn].isLive()) {
+                //쫄따구가 공격
+                window.setnowturn(turn,true);
+                c.setState(-1);
+                select_mob(d);
+            }
+            else {
+                handler.postDelayed(new Runnable() {
+                    @RequiresApi(api = Build.VERSION_CODES.M)
+                    @Override
+                    public void run() {
+                        next_turn();
+                    }
+                },750);
+            }
         }
         else {
-            window.setnowturn(turn,true);
+            //(디)버프 처리
+            totalTurn++;
+            for (int i=0;i<mobnum;i++){
+                if(enemy[i].isLive()){
+                    enemy[i].buff_check(totalTurn);
+                }
+            }
+            for (int i=0;i<playernum;i++){
+                if(friendly[i].isLive()){
+                    friendly[i].buff_check(totalTurn);
+                }
+            }
             chatui.draw_startmenu();
         }
 
@@ -188,6 +204,7 @@ public class BattleHandler {
         //다음턴 넘기기
         //중간 정지를 위해 스레드로
         handler.postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void run() {
                 next_turn();
@@ -211,6 +228,7 @@ public class BattleHandler {
         //다음턴 넘기기
         //중간 정지를 위해 스레드로
         handler.postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void run() {
                 next_turn();
@@ -235,6 +253,7 @@ public class BattleHandler {
 
         //다음턴
         handler.postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void run() {
                 next_turn();
@@ -247,6 +266,7 @@ public class BattleHandler {
         enemy[target].add_buff(friendly[turn].usebuff(totalTurn,true));
 
         handler.postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void run() {
                 next_turn();
@@ -258,6 +278,7 @@ public class BattleHandler {
         friendly[target].add_buff(friendly[turn].usebuff(totalTurn,false));
 
         handler.postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void run() {
                 next_turn();
@@ -398,19 +419,31 @@ public class BattleHandler {
         return false;
     }
 
-    public void usePotion(int target,boolean ishp)
+    public void usehpPotion(int target)
     {
         //포션개수깎기 필요
-        if(ishp){
-            friendly[target].recovery(new Heal(500,0));
-            window.setplayerHP(target,friendly[target].get_HPper());
-        }
-        else {//mp는 한명 밖에 없음
-            friendly[0].recovery(new Heal(0,500));
-            window.setplayerMP(friendly[target].get_MPper());
-        }
+        friendly[target].recovery(new Heal(500,0));
+        window.setplayerHP(target,friendly[target].get_HPper());
+
         //다음턴
         handler.postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void run() {
+                next_turn();
+            }
+        },750);
+    }
+
+    public void usempPotion(){
+        //mp는 한명 밖에 없음
+        //포션개수깎기 필요
+        friendly[0].recovery(new Heal(0,500));
+        window.setplayerMP(friendly[0].get_MPper());
+
+        //다음턴
+        handler.postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void run() {
                 next_turn();
@@ -427,6 +460,7 @@ public class BattleHandler {
 
     //chatui
     public void draw_startmenu(){
+        window.setnowturn(turn,true);
         chatui.draw_startmenu();
     }
 
@@ -443,6 +477,8 @@ public class BattleHandler {
     }
 
     private void end(boolean win){
+        window.test("456");
+        endfunc.end();
 
         if(win)
         {

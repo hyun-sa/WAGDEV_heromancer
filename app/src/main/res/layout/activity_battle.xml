@@ -207,13 +207,14 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="45dp"
             android:layout_height="5dp"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="5dp"
             android:max="100"
             android:progress="100"
             android:progressBackgroundTint="#375F41"
             android:progressTint="#cc0000"
-            app:layout_constraintTop_toBottomOf="@id/p2"
-            tools:layout_editor_absoluteX="157dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/p2" />
 
         <ProgressBar
             android:id="@+id/playerhp3"
@@ -247,19 +248,21 @@
             android:id="@+id/p1"
             android:layout_width="20dp"
             android:layout_height="10dp"
+            android:layout_marginStart="135dp"
             android:layout_marginTop="80dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/arrow_down_float"
-            tools:layout_editor_absoluteX="137dp" />
+            app:srcCompat="@android:drawable/arrow_down_float" />
 
         <ImageView
             android:id="@+id/p2"
             android:layout_width="20dp"
             android:layout_height="10dp"
+            android:layout_marginStart="160dp"
             android:layout_marginTop="60dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/arrow_down_float"
-            tools:layout_editor_absoluteX="169dp" />
+            app:srcCompat="@android:drawable/arrow_down_float" />
 
         <ImageView
             android:id="@+id/p3"

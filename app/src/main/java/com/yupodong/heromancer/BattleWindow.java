@@ -66,8 +66,10 @@ public class BattleWindow {
 
 
         //리스너 등록
-        for (int i=0;i<4;i++) {
+        for (int i=0;i<mobNum;i++) {
             mob[i].setOnClickListener(c.mob);
+        }
+        for (int i=0;i<playerNum;i++) {
             player[i].setOnClickListener(c.player);
         }
 
@@ -148,4 +150,5 @@ public class BattleWindow {
         //testcount++;
         ((TextView)layout.findViewById(R.id.test)).setText(a);
     }
+
 }

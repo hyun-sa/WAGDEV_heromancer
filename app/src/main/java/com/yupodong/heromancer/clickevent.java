@@ -39,6 +39,13 @@ public class clickevent {
         init_click();
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void setState(int i){
+        state = i;
+    }
+
     private void init_click(){
 
         //시작메뉴
@@ -59,6 +66,7 @@ public class clickevent {
             }
         };
 
+        //스킬창
         startbtn[1]=new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
@@ -228,6 +236,9 @@ public class clickevent {
                         case R.id.mob4:
                             target=3;
                             break;
+                        case R.id.mob5:
+                            target=4;
+                            break;
                         default:
                             return;
                     }
@@ -235,6 +246,7 @@ public class clickevent {
                         return;
 
                     switch (state){
+                        case -1:
                         case 1://공격
                             handler.MobAttack(target);
                             break;
@@ -267,9 +279,6 @@ public class clickevent {
                         case R.id.player3:
                             target=2;
                             break;
-                        case R.id.player4:
-                            target=3;
-                            break;
                         default:
                             return;
                     }
@@ -285,10 +294,10 @@ public class clickevent {
                             handler.buff(target);
                             break;
                         case 6:
-                            handler.usePotion(target,true);
+                            handler.usehpPotion(target);
                             break;
                         case 7:
-                            handler.usePotion(target,false);
+                            handler.usempPotion();
                     }
                     state=0;
                 }//if끝
