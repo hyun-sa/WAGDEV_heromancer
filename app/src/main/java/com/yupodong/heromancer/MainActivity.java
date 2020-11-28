@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     public void ClicktoSetting(View view)
     {
         Intent intent = new Intent(this, Setting.class);
-        intent.putExtra("data", "Test Popup");
+        intent.putExtra("data", "Setting Popup");
         startActivityForResult(intent, 1);
     }
 
