@@ -22,28 +22,28 @@ import java.util.Random;
 
 public class BattleHandler {
     //기본리소스
-    private Mob[] enemy;
-    private  Player[] friendly;
-    private ChatUI chatui;
-    private BattleWindow window;
-    private Random random=new Random();
+    private final Mob[] enemy;
+    private final Player[] friendly;
+    private final ChatUI chatui;
+    private final BattleWindow window;
+    private final Random random=new Random();
 
     //상태
     private int turn=0;//0~maxturn-1까지만
-    private int maxturn;
+    private final int maxturn;
     private int dieplayer=0;
     private int diemob=0;
-    private Handler handler=new Handler();
+    private final Handler handler=new Handler();
     private int totalTurn=1;
 
 
-    private int mobnum=4;
-    private int playernum=4;
+    private final int mobnum=4;
+    private final int playernum=4;
     public BattleHandler(LinearLayout chat, ConstraintLayout window, Context con, clickevent c){
         random.setSeed(System.currentTimeMillis());
         //이곳에서 맵같은걸로 초기화
         //임시제작
-        if(mobnum<playernum) maxturn=playernum; else maxturn=mobnum;
+        maxturn = Math.max(mobnum, playernum);
         enemy=new Mob[mobnum];
         friendly= new Player[playernum];
 
@@ -75,7 +75,7 @@ public class BattleHandler {
 
 
 
-    private int[] attack_per={1,1,1,1};//플레이어가 공격당할 확률
+    private final int[] attack_per={1,1,1,1};//플레이어가 공격당할 확률
     private void set_per(){//플레이어가 타겟이될 확율 셋팅
         int per=100/(playernum-dieplayer);
         int mul=1;

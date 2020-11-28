@@ -13,20 +13,20 @@ import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class BattleWindow {
-    private ImageButton[] mob=new ImageButton[4];
-    private ImageButton[] player=new ImageButton[4];
+    private final ImageButton[] mob=new ImageButton[4];
+    private final ImageButton[] player=new ImageButton[4];
 
-    private ImageView[] now_turn=new ImageView[4];
+    private final ImageView[] now_turn=new ImageView[4];
 
-    private ProgressBar[] mobhp=new ProgressBar[4];
-    private ProgressBar[] playerhp=new ProgressBar[4];
-    private ProgressBar[] playermp=new ProgressBar[4];
+    private final ProgressBar[] mobhp=new ProgressBar[4];
+    private final ProgressBar[] playerhp=new ProgressBar[4];
+    private final ProgressBar[] playermp=new ProgressBar[4];
 
     private int mobNum;
     private int playerNum;
-    private ConstraintLayout layout;
+    private final ConstraintLayout layout;
     private Context context;
-    private com.yupodong.heromancer.clickevent c;
+    private final com.yupodong.heromancer.clickevent c;
     public BattleWindow(ConstraintLayout l, Context con, int playerNum, int mobNum, com.yupodong.heromancer.clickevent c){
         this.layout=l;
         this.context=con;
