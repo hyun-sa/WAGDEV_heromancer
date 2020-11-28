@@ -8,12 +8,20 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
+    MediaPlayer mediaPlayer;
+    SoundPool soundPool;
+    int soundID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +29,20 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
+        soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC,0);
+        soundID = soundPool.load(this,R.raw.click,1);
+        mediaPlayer = MediaPlayer.create(this, R.raw.main_bgm);
+        if (!mediaPlayer.isPlaying())
+        {
+            mediaPlayer.start();
+        }
     }
 
     public void OnClickHandler(View view)
     {
+        soundPool.play(soundID,1f,1f,0,0,1f);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("게임시작");
@@ -40,10 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), SubMain.class);
                 startActivity(intent);
+                mediaPlayer.pause();
                 //데이터 베이스 불러오기 필요
                 //없으면 생성 있으면 그대로
             }
         });
+
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -51,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void ClicktoSetting(View view)
     {
+        soundPool.play(soundID,1f,1f,0,0,1f);
         Intent intent = new Intent(this, Setting.class);
         intent.putExtra("data", "Setting Popup");
         startActivityForResult(intent, 1);
@@ -58,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick_finish(View view)
     {
+        soundPool.play(soundID,1f,1f,0,0,1f);
+        mediaPlayer.pause();
         ActivityCompat.finishAffinity(this);
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 }
