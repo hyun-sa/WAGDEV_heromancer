@@ -1,5 +1,6 @@
 package com.yupodong.heromancer;
 
+import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -20,28 +21,19 @@ public class clickevent {
     public View.OnClickListener mob;
     public View.OnClickListener[] skillbtn=new View.OnClickListener[4]; //0공격 1스킬 2아이템 3강제처형
     public View.OnClickListener player;
-
     public View.OnClickListener[] itembtn=new View.OnClickListener[2];//0:hp포션, 1:mp포션
-
-
-
-
     public clickevent(Resources r){
         this.resources=r;
     }
-
     public Resources getResources() {
         return resources;
     }
-
     public void setMobtarget(boolean mobtarget) {
         this.mobtarget = mobtarget;
     }
-
     public void setPlayertarget(boolean playertarget) {
         this.playertarget = playertarget;
     }
-
     public void setHandler(BattleHandler handler) {
         this.handler = handler;
         init_click();
@@ -52,7 +44,8 @@ public class clickevent {
         //시작메뉴
         //공격 시, 상태 1
         startbtn[0]=new View.OnClickListener() {
-            Drawable d=resources.getDrawable(R.color.강제처형);//임시설정
+            @SuppressLint("UseCompatLoadingForDrawables")
+            final Drawable d=resources.getDrawable(R.color.강제처형);//임시설정
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -97,7 +90,8 @@ public class clickevent {
 
         //강제처형
         startbtn[3]=new View.OnClickListener() {
-            Drawable d=resources.getDrawable(R.color.강제처형);
+            @SuppressLint("UseCompatLoadingForDrawables")
+            final Drawable d=resources.getDrawable(R.color.강제처형);
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -112,7 +106,8 @@ public class clickevent {
         //스킬메뉴
         //공격스킬
         skillbtn[0]=new View.OnClickListener() {
-            Drawable d=resources.getDrawable(R.color.강제처형);//임시설정
+            @SuppressLint("UseCompatLoadingForDrawables")
+            final Drawable d=resources.getDrawable(R.color.강제처형);//임시설정
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -129,7 +124,8 @@ public class clickevent {
 
         //치유
         skillbtn[1]=new View.OnClickListener() {
-            Drawable d=resources.getDrawable(R.color.아군타겟);
+            @SuppressLint("UseCompatLoadingForDrawables")
+            final Drawable d=resources.getDrawable(R.color.아군타겟);
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -146,7 +142,8 @@ public class clickevent {
 
         //버프
         skillbtn[2]=new View.OnClickListener() {
-            Drawable d=resources.getDrawable(R.color.아군타겟);
+            @SuppressLint("UseCompatLoadingForDrawables")
+            final Drawable d=resources.getDrawable(R.color.아군타겟);
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -163,7 +160,8 @@ public class clickevent {
 
         //디버프
         skillbtn[3]=new View.OnClickListener() {
-            Drawable d=resources.getDrawable(R.color.강제처형);//임시설정
+            @SuppressLint("UseCompatLoadingForDrawables")
+            final Drawable d=resources.getDrawable(R.color.강제처형);//임시설정
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -181,7 +179,8 @@ public class clickevent {
         //아이템(수정필요)
         //hp포션
         itembtn[0]=new View.OnClickListener() {
-            Drawable d=resources.getDrawable(R.color.아군타겟);
+            @SuppressLint("UseCompatLoadingForDrawables")
+            final Drawable d=resources.getDrawable(R.color.아군타겟);
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -195,7 +194,8 @@ public class clickevent {
 
         //mp포션
         itembtn[1]=new View.OnClickListener() {
-            Drawable d=resources.getDrawable(R.color.아군타겟);
+            @SuppressLint("UseCompatLoadingForDrawables")
+            final Drawable d=resources.getDrawable(R.color.아군타겟);
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -207,17 +207,13 @@ public class clickevent {
             }
         };
 
-
-
-
         //mob 이미지버튼에 들어갈 리스너
         mob=new View.OnClickListener() {
+            @SuppressLint("NonConstantResourceId")
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
                 if(mobtarget){
-
-
                     int target;
                     switch (v.getId()){
                         case R.id.mob1:
@@ -235,7 +231,6 @@ public class clickevent {
                         default:
                             return;
                     }
-
                     if(!handler.finish_select_mob(target))
                         return;
 
@@ -251,15 +246,12 @@ public class clickevent {
                             break;
                     }
                     state=0;
-
-
                 }//if끝
-
             }//함수 끝
         };
-
         //player 이미지버튼에 들어갈 리스너
         player=new View.OnClickListener() {
+            @SuppressLint("NonConstantResourceId")
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
@@ -297,26 +289,10 @@ public class clickevent {
                             break;
                         case 7:
                             handler.usePotion(target,false);
-
                     }
                     state=0;
-
-
                 }//if끝
-
             }//함수 끝
         };
-
-
-
-
-
-
-
-
-
     }
-
-
-
 }

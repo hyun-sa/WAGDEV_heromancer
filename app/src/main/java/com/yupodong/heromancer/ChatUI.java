@@ -10,13 +10,9 @@ import androidx.annotation.RequiresApi;
 
 
 public class ChatUI {
-
-
-    private LinearLayout layout;
-    private Context context;
-    private com.yupodong.heromancer.clickevent clickevent;
-
-
+    private final LinearLayout layout;
+    private final Context context;
+    private final com.yupodong.heromancer.clickevent clickevent;
 
     public ChatUI(LinearLayout l, Context con, com.yupodong.heromancer.clickevent clickevent){
         this.layout=l;

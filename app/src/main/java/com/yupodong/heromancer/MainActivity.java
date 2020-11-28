@@ -2,6 +2,7 @@ package com.yupodong.heromancer;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -57,6 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick_finish(View view)
     {
-        finish();
+        ActivityCompat.finishAffinity(this);
     }
 }
