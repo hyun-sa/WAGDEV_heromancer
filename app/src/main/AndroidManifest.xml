@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
+
         <!--theme 새로 생성, style참고-->
         <activity android:name=".Setting" android:theme="@style/Theme.MyDialog"/>
         <activity android:name=".MainActivity">
@@ -25,7 +27,7 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".Store"
             android:screenOrientation="landscape"/>
-        <activity android:name=".Field"
+        <activity android:name=".battle"
             android:screenOrientation="landscape"/>
         <activity android:name=".Tomb"
             android:screenOrientation="landscape"/>

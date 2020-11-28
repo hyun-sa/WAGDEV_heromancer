@@ -34,7 +34,7 @@ public class SubMain extends AppCompatActivity {
     }
 
     public void onButtonFieldClicked(View view) {
-        Intent intent = new Intent(getApplicationContext(), Field.class);
+        Intent intent = new Intent(getApplicationContext(), battle.class);
         startActivity(intent);
     }
 }

@@ -3,4 +3,6 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="강제처형">#83E42B1E</color>
+    <color name="아군타겟">#8063C8D1</color>
 </resources>
