@@ -24,4 +24,8 @@ public class battle extends AppCompatActivity {
         handler=new BattleHandler((LinearLayout)findViewById(R.id.chat),(ConstraintLayout)findViewById(R.id.window),this,c);
 
     }
+
+    public void end(){
+        super.onBackPressed();
+    }
 }

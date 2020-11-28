@@ -16,6 +16,16 @@
         android:layout_weight="2">
 
         <ImageButton
+            android:id="@+id/mob5"
+            android:layout_width="45dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="72dp"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mob5hp" />
+
+        <ImageButton
             android:id="@+id/mob1"
             android:layout_width="45dp"
             android:layout_height="70dp"
@@ -42,8 +52,7 @@
             android:layout_width="45dp"
             android:layout_height="70dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="68dp"
-            android:layout_marginRight="68dp"
+            android:layout_marginEnd="72dp"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mob3hp" />
@@ -53,62 +62,45 @@
             android:layout_width="45dp"
             android:layout_height="70dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="68dp"
-            android:layout_marginRight="68dp"
+            android:layout_marginEnd="72dp"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mob4hp" />
 
         <ImageButton
-            android:id="@+id/player1"
-            android:layout_width="45dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginTop="4dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toEndOf="@+id/player3"
-            app:layout_constraintTop_toBottomOf="@+id/playermp1"
-            app:srcCompat="@drawable/player" />
-
-        <ImageButton
             android:id="@+id/player2"
             android:layout_width="45dp"
             android:layout_height="70dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/p2"
+            app:srcCompat="@drawable/player" />
+
+        <ImageButton
+            android:id="@+id/player1"
+            android:layout_width="45dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="125dp"
             android:layout_marginTop="4dp"
             android:background="@android:color/transparent"
             android:scaleType="centerCrop"
-            app:layout_constraintStart_toEndOf="@+id/player4"
-            app:layout_constraintTop_toBottomOf="@+id/playermp2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playermp1"
             app:srcCompat="@drawable/player" />
 
         <ImageButton
             android:id="@+id/player3"
             android:layout_width="45dp"
             android:layout_height="70dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="8dp"
             android:background="@android:color/transparent"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playermp3"
-            app:srcCompat="@drawable/player" />
-
-        <ImageButton
-            android:id="@+id/player4"
-            android:layout_width="45dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="4dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playermp4"
+            app:layout_constraintTop_toBottomOf="@+id/p3"
             app:srcCompat="@drawable/player" />
 
         <TextView
@@ -158,9 +150,36 @@
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="45dp"
             android:layout_height="5dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="68dp"
-            android:layout_marginRight="68dp"
+            android:layout_marginEnd="72dp"
+            android:max="100"
+            android:progress="100"
+            android:progressBackgroundTint="#375F41"
+            android:progressTint="#cc0000"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/mob5" />
+
+        <ProgressBar
+            android:id="@+id/mob4hp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="45dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="72dp"
+            android:max="100"
+            android:progress="100"
+            android:progressBackgroundTint="#375F41"
+            android:progressTint="#cc0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mob3" />
+
+        <ProgressBar
+            android:id="@+id/mob5hp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="45dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="72dp"
             android:max="100"
             android:progress="100"
             android:progressBackgroundTint="#375F41"
@@ -170,33 +189,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ProgressBar
-            android:id="@+id/mob4hp"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="45dp"
-            android:layout_height="5dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="68dp"
-            android:layout_marginRight="68dp"
-            android:max="100"
-            android:progress="100"
-            android:progressBackgroundTint="#375F41"
-            android:progressTint="#cc0000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mob3" />
-
-        <ProgressBar
             android:id="@+id/playerhp1"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="45dp"
             android:layout_height="5dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
+            android:layout_marginStart="125dp"
             android:layout_marginTop="5dp"
             android:max="100"
             android:progress="100"
             android:progressBackgroundTint="#375F41"
             android:progressTint="#cc0000"
-            app:layout_constraintStart_toEndOf="@+id/player3"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/p1" />
 
         <ProgressBar
@@ -204,14 +207,13 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="45dp"
             android:layout_height="5dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="5dp"
             android:max="100"
             android:progress="100"
             android:progressBackgroundTint="#375F41"
             android:progressTint="#cc0000"
-            app:layout_constraintStart_toEndOf="@+id/player4"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/p2" />
 
         <ProgressBar
@@ -219,8 +221,7 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="45dp"
             android:layout_height="5dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
+            android:layout_marginStart="96dp"
             android:layout_marginTop="5dp"
             android:max="100"
             android:progress="100"
@@ -230,88 +231,26 @@
             app:layout_constraintTop_toBottomOf="@+id/p3" />
 
         <ProgressBar
-            android:id="@+id/playerhp4"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="45dp"
-            android:layout_height="5dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="5dp"
-            android:max="100"
-            android:progress="100"
-            android:progressBackgroundTint="#375F41"
-            android:progressTint="#cc0000"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/p4" />
-
-        <ProgressBar
             android:id="@+id/playermp1"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="45dp"
             android:layout_height="5dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
+            android:layout_marginStart="125dp"
             android:layout_marginTop="2dp"
             android:max="100"
             android:progress="100"
             android:progressBackgroundTint="#375F41"
             android:progressTint="#3A2DF8"
-            app:layout_constraintStart_toEndOf="@+id/player3"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/playerhp1" />
-
-        <ProgressBar
-            android:id="@+id/playermp2"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="45dp"
-            android:layout_height="5dp"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginTop="2dp"
-            android:max="100"
-            android:progress="100"
-            android:progressBackgroundTint="#375F41"
-            android:progressTint="#3A2DF8"
-            app:layout_constraintStart_toEndOf="@+id/player4"
-            app:layout_constraintTop_toBottomOf="@+id/playerhp2" />
-
-        <ProgressBar
-            android:id="@+id/playermp3"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="45dp"
-            android:layout_height="5dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="2dp"
-            android:max="100"
-            android:progress="100"
-            android:progressBackgroundTint="#375F41"
-            android:progressTint="#3A2DF8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playerhp3" />
-
-        <ProgressBar
-            android:id="@+id/playermp4"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="45dp"
-            android:layout_height="5dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="2dp"
-            android:max="100"
-            android:progress="100"
-            android:progressBackgroundTint="#375F41"
-            android:progressTint="#3A2DF8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playerhp4" />
 
         <ImageView
             android:id="@+id/p1"
             android:layout_width="20dp"
             android:layout_height="10dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintStart_toEndOf="@+id/player3"
+            android:layout_marginStart="135dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/arrow_down_float" />
 
@@ -319,33 +258,20 @@
             android:id="@+id/p2"
             android:layout_width="20dp"
             android:layout_height="10dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toEndOf="@+id/player4"
-            app:layout_constraintTop_toBottomOf="@+id/player1"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/arrow_down_float" />
 
         <ImageView
             android:id="@+id/p3"
             android:layout_width="20dp"
             android:layout_height="10dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="120dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/arrow_down_float" />
-
-        <ImageView
-            android:id="@+id/p4"
-            android:layout_width="20dp"
-            android:layout_height="10dp"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/player3"
             app:srcCompat="@android:drawable/arrow_down_float" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
