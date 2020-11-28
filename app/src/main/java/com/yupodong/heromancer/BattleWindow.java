@@ -13,14 +13,14 @@ import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class BattleWindow {
-    private ImageButton[] mob=new ImageButton[4];
-    private ImageButton[] player=new ImageButton[4];
+    private ImageButton[] mob=new ImageButton[5];
+    private ImageButton[] player=new ImageButton[3];
 
-    private ImageView[] now_turn=new ImageView[4];
+    private ImageView[] now_turn=new ImageView[3];
 
-    private ProgressBar[] mobhp=new ProgressBar[4];
-    private ProgressBar[] playerhp=new ProgressBar[4];
-    private ProgressBar[] playermp=new ProgressBar[4];
+    private ProgressBar[] mobhp=new ProgressBar[5];
+    private ProgressBar[] playerhp=new ProgressBar[3];
+    private ProgressBar playermp;
 
     private int mobNum;
     private int playerNum;
@@ -39,16 +39,17 @@ public class BattleWindow {
         mob[1]=(ImageButton)layout.findViewById(R.id.mob2);
         mob[2]=(ImageButton)layout.findViewById(R.id.mob3);
         mob[3]=(ImageButton)layout.findViewById(R.id.mob4);
+        mob[4]=(ImageButton)layout.findViewById(R.id.mob5);
         player[0]=(ImageButton)layout.findViewById(R.id.player1);
         player[1]=(ImageButton)layout.findViewById(R.id.player2);
         player[2]=(ImageButton)layout.findViewById(R.id.player3);
-        player[3]=(ImageButton)layout.findViewById(R.id.player4);
+
 
         now_turn[0]=(ImageView)layout.findViewById(R.id.p1);
         now_turn[1]=(ImageView)layout.findViewById(R.id.p2);
         now_turn[2]=(ImageView)layout.findViewById(R.id.p3);
-        now_turn[3]=(ImageView)layout.findViewById(R.id.p4);
-        for(int i=1;i<4;i++){
+
+        for(int i=1;i<3;i++){
             now_turn[i].setVisibility(View.INVISIBLE);
         }
 
@@ -56,14 +57,12 @@ public class BattleWindow {
         mobhp[1]=(ProgressBar)layout.findViewById(R.id.mob2hp);
         mobhp[2]=(ProgressBar)layout.findViewById(R.id.mob3hp);
         mobhp[3]=(ProgressBar)layout.findViewById(R.id.mob4hp);
+        mobhp[4]=(ProgressBar)layout.findViewById(R.id.mob5hp);
         playerhp[0]=(ProgressBar)layout.findViewById(R.id.playerhp1);
         playerhp[1]=(ProgressBar)layout.findViewById(R.id.playerhp2);
         playerhp[2]=(ProgressBar)layout.findViewById(R.id.playerhp3);
-        playerhp[3]=(ProgressBar)layout.findViewById(R.id.playerhp4);
-        playermp[0]=(ProgressBar)layout.findViewById(R.id.playermp1);
-        playermp[1]=(ProgressBar)layout.findViewById(R.id.playermp2);
-        playermp[2]=(ProgressBar)layout.findViewById(R.id.playermp3);
-        playermp[3]=(ProgressBar)layout.findViewById(R.id.playermp4);
+        //주인공 mp
+        playermp=(ProgressBar)layout.findViewById(R.id.playermp1);
 
 
         //리스너 등록
@@ -127,8 +126,8 @@ public class BattleWindow {
         playerhp[target].setProgress(per);
     }
 
-    public void setplayerMP(int target,int per){
-        playermp[target].setProgress(per);
+    public void setplayerMP(int per){
+        playermp.setProgress(per);
     }
 
     public void setmobimage(int i,int image){

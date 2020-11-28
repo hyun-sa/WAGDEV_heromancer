@@ -10,7 +10,7 @@ public class Warrior extends Mob{
         MaxMP=500;     //최대 mp
         MP=MaxMP;        //현재 mp
         Atk=50;       //공격력
-        Mag=0;       //마력
+        Mag=0;          //마력
         Def=200;       //방어력
         MRt=70;       //마법 저항력
     }

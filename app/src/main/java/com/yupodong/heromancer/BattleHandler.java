@@ -37,14 +37,17 @@ public class BattleHandler {
     private int totalTurn=1;
 
 
-    private int mobnum=4;
-    private int playernum=4;
+    private int mobnum;
+    private int playernum;
     public BattleHandler(LinearLayout chat, ConstraintLayout window, Context con, clickevent c){
         random.setSeed(System.currentTimeMillis());
         //이곳에서 맵같은걸로 초기화
         //임시제작
-        if(mobnum<playernum) maxturn=playernum; else maxturn=mobnum;
-        enemy=new Mob[mobnum];
+        playernum=3;
+        mobnum=5;
+
+        if(mobnum<playernum) maxturn=playernum; else maxturn=mobnum;//최대 턴 수 지정
+        enemy=new Mob[mobnum];//
         friendly= new Player[playernum];
 
 
@@ -55,27 +58,36 @@ public class BattleHandler {
         this.chatui=new ChatUI(chat,con,c);
         this.window=new BattleWindow(window,con,playernum,mobnum,c);
 
-        for (int i=0;i<playernum;i++){
-            switch (random.nextInt(2)){
+        int num;
+        for (int i=0;i<mobnum;i++){
+            if(i<3)
+                num=random.nextInt(1);
+            else
+                num=random.nextInt(2);
+            switch (num){
                 case 0:
                     enemy[i]= new Warrior();
                     //이미지 변경
                     break;
                 case 1:
-                    enemy[i]= new Archer();
-                    break;
-                case 2:
                     enemy[i]= new Knight();
                     break;
+                case 2:
+                    enemy[i]= new Archer();
+                    break;
             }
+        }
+        //스텟입력 ,수정필요
+        friendly[0]=new MagicKnight();
+        for (int i=1;i<playernum;i++)
+        {
             friendly[i]=new MagicKnight();
         }
-
     }
 
 
 
-    private int[] attack_per={1,1,1,1};//플레이어가 공격당할 확률
+    private int[] attack_per={1,1,1};//플레이어가 공격당할 확률
     private void set_per(){//플레이어가 타겟이될 확율 셋팅
         int per=100/(playernum-dieplayer);
         int mul=1;
@@ -194,7 +206,6 @@ public class BattleHandler {
         if(!enemy[target].isLive()){
             mobdie(target);
         }
-        //몬스터 다죽을 시 추가 필요
 
 
         //다음턴 넘기기
@@ -220,7 +231,7 @@ public class BattleHandler {
         /*플레이어를 회복시킴*/
         friendly[target].recovery(friendly[turn].heal(500,0));
         window.setplayerHP(target,friendly[target].get_HPper());
-        window.setplayerMP(turn,friendly[turn].get_MPper());
+        window.setplayerMP(friendly[turn].get_MPper());
 
         //다음턴
         handler.postDelayed(new Runnable() {
@@ -394,9 +405,9 @@ public class BattleHandler {
             friendly[target].recovery(new Heal(500,0));
             window.setplayerHP(target,friendly[target].get_HPper());
         }
-        else {
-            friendly[target].recovery(new Heal(0,500));
-            window.setplayerMP(target,friendly[target].get_MPper());
+        else {//mp는 한명 밖에 없음
+            friendly[0].recovery(new Heal(0,500));
+            window.setplayerMP(friendly[target].get_MPper());
         }
         //다음턴
         handler.postDelayed(new Runnable() {
