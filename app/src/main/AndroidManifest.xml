@@ -19,6 +19,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--        submain        -->
+        <activity android:name=".SubMain"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Store"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Field"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Tomb"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Training"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
