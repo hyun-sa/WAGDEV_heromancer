@@ -35,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
             {
                 String[] items = getResources().getStringArray(R.array.LAN);
                 Toast.makeText(getApplicationContext(),items[pos],Toast.LENGTH_LONG).show();
+
+
+                Intent intent = new Intent(getApplicationContext(), SubMain.class);
+                startActivity(intent);
+                //데이터 베이스 불러오기 필요
+                //없으면 생성 있으면 그대로
             }
         });
 
