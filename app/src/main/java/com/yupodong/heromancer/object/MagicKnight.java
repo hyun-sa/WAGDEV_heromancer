@@ -14,7 +14,7 @@ public class MagicKnight extends Player {
         MP=MaxMP;        //현재 mp
         Atk=50;       //공격력
         Mag=50;       //마력
-        Def=150;       //방어력
+        Def=150;       //방어력ㅁ
         MRt=100;       //마법 저항력
     }
 

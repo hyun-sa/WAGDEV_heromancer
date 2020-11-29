@@ -61,6 +61,7 @@ public class clickevent {
                 if (playertarget){
                     handler.finish_select_player();
                 }
+                state=0;
                 handler.draw_startmenu();
             }
         };
@@ -225,10 +226,9 @@ public class clickevent {
             @Override
             public void onClick(View v) {
                 if(!handler.can_useusePotion(1)) return;
-                if(state!=7){
-                    state=7;
-                    handler.select_player(d);
-                }
+
+                if(!handler.finish_select_player(0)) return;//포션은 플레이어에게만 사용가능
+                handler.usempPotion();
             }
         };
 
@@ -303,7 +303,7 @@ public class clickevent {
                     if(!handler.finish_select_player(target))
                         return;
 
-                    switch (state){
+                    switch (state) {
                         case 3://힐
                             handler.PlayerHeal(target);
                             break;
@@ -313,10 +313,7 @@ public class clickevent {
                         case 6://hp포션
                             handler.usehpPotion(target);
                             break;
-                        case 7://mp포션
-                            handler.usempPotion();
                     }
-                    state=0;
                 }//if끝
             }//함수 끝
         };
