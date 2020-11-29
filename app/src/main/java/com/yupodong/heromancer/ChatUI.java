@@ -50,11 +50,13 @@ public class ChatUI {
 
     private int ItemNum=2;
     private Button[] itembtn=new Button[ItemNum];
-    String[] item={"Hp포션","Mp포션"};
-    public void draw_itemmenu(){
+    String[] item={"Hp포션(","Mp포션("};
+    public void draw_itemmenu(int[] amount){
         layout.removeAllViews();
         for (int i=0;i<ItemNum;i++)
         {
+
+            itembtn[i].setText(item[i]+Integer.toString(amount[i])+")");
             layout.addView(itembtn[i]);
         }
     }
@@ -82,7 +84,6 @@ public class ChatUI {
         for(int i=0;i<ItemNum;i++)
         {
             itembtn[i]=new Button(context);
-            itembtn[i].setText(item[i]);
             itembtn[i].setLayoutParams(param);
             itembtn[i].setOnClickListener(clickevent.itembtn[i]);
         }

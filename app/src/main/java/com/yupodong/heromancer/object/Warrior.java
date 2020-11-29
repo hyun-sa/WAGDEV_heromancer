@@ -1,5 +1,6 @@
 package com.yupodong.heromancer.object;
 
+import com.yupodong.heromancer.R;
 import com.yupodong.heromancer.object.data.Damage;
 
 public class Warrior extends Mob{
@@ -13,6 +14,7 @@ public class Warrior extends Mob{
         Mag=0;          //마력
         Def=200;       //방어력
         MRt=70;       //마법 저항력
+        Dieimage= R.drawable.warriordie;
     }
 
     @Override

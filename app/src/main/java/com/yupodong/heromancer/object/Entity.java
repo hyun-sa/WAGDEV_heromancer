@@ -45,6 +45,7 @@ abstract class Entity {
         return MP;
     }
 
+
     public void buff_check(int turn){
         while (!hasbuff.isEmpty()&&hasbuff.peek().end_turn==turn){
             Buff b=hasbuff.poll();
@@ -63,15 +64,6 @@ abstract class Entity {
         this.MRt+=b.MRt;
     }
 
-    //버프효과는 고정
-    public Buff usebuff(int nowturn,boolean isdebuff){
-
-
-        if(isdebuff)
-            return new Buff(nowturn+3,-1000,-10,-10,-10);
-        else
-            return new Buff(nowturn+3,1000,10,10,10);
-    }
 
     public int get_HPper(){
         return (int)(HP/MaxHP*100);
@@ -90,4 +82,6 @@ abstract class Entity {
     public int getDieimage() {
         return Dieimage;
     }
+
+
 }

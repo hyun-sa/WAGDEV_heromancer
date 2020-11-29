@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="0dp"
     android:background="#A9DAF1"
     android:orientation="vertical"
     tools:context=".battle">
@@ -16,56 +17,64 @@
         android:layout_weight="2">
 
         <ImageButton
-            android:id="@+id/mob5"
-            android:layout_width="45dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="72dp"
-            android:src="@mipmap/ic_launcher_round"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mob5hp" />
-
-        <ImageButton
             android:id="@+id/mob1"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="70dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="48dp"
-            android:layout_marginRight="48dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toStartOf="@+id/mob3"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/mob2"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="70dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="48dp"
-            android:layout_marginRight="48dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toStartOf="@+id/mob4"
             app:layout_constraintTop_toBottomOf="@+id/mob2hp" />
 
         <ImageButton
             android:id="@+id/mob3"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="70dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="72dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mob3hp" />
 
         <ImageButton
             android:id="@+id/mob4"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="70dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="72dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mob4hp" />
+
+        <ImageButton
+            android:id="@+id/mob5"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="72dp"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mob5hp" />
 
         <ImageButton
             android:id="@+id/player2"
@@ -118,10 +127,9 @@
         <ProgressBar
             android:id="@+id/mob1hp"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="5dp"
             android:layout_marginEnd="48dp"
-            android:layout_marginRight="48dp"
             android:layout_marginBottom="4dp"
             android:max="100"
             android:progress="100"
@@ -133,11 +141,10 @@
         <ProgressBar
             android:id="@+id/mob2hp"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="5dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="48dp"
-            android:layout_marginRight="48dp"
             android:max="100"
             android:progress="100"
             android:progressBackgroundTint="#375F41"
@@ -148,7 +155,7 @@
         <ProgressBar
             android:id="@+id/mob3hp"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="5dp"
             android:layout_marginEnd="72dp"
             android:max="100"
@@ -162,7 +169,7 @@
         <ProgressBar
             android:id="@+id/mob4hp"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="5dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="72dp"
@@ -176,7 +183,7 @@
         <ProgressBar
             android:id="@+id/mob5hp"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="45dp"
+            android:layout_width="50dp"
             android:layout_height="5dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="72dp"
@@ -273,6 +280,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/arrow_down_float" />
+
+        <Button
+            android:id="@+id/backbutton"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:layout_margin="0dp"
+            android:text="뒤로가기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

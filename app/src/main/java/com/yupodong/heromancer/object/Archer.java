@@ -1,8 +1,11 @@
 package com.yupodong.heromancer.object;
 
+import com.yupodong.heromancer.R;
 import com.yupodong.heromancer.object.data.Damage;
 
 public class Archer extends Mob{
+
+
     public Archer(){
         super();
         MaxHP=400;     //최대hp
@@ -13,6 +16,8 @@ public class Archer extends Mob{
         Mag=0;       //마력
         Def=50;       //방어력
         MRt=50;       //마법 저항력
+        Dieimage=R.drawable.archerdie;
+
     }
 
     @Override

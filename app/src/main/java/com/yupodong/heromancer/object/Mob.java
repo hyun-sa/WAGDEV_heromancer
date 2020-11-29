@@ -5,7 +5,6 @@ import com.yupodong.heromancer.object.data.Heal;
 
 abstract public class Mob extends Entity{
 
-    protected int item;
 
     public Mob(){
         super();

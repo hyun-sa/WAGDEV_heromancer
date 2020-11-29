@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -15,12 +16,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 public class BattleWindow {
     private ImageButton[] mob=new ImageButton[5];
     private ImageButton[] player=new ImageButton[3];
+    private Button backbtn;
 
     private ImageView[] now_turn=new ImageView[3];
 
     private ProgressBar[] mobhp=new ProgressBar[5];
     private ProgressBar[] playerhp=new ProgressBar[3];
     private ProgressBar playermp;
+
 
     private int mobNum;
     private int playerNum;
@@ -33,6 +36,10 @@ public class BattleWindow {
         this.playerNum=playerNum;
         this.mobNum=mobNum;
         this.c=c;
+
+        backbtn=(Button)layout.findViewById(R.id.backbutton);
+        backbtn.setOnClickListener(c.backbtn);
+        backbtn.setVisibility(View.INVISIBLE);
 
         //자주 사용되기에 미리 찾아둠
         mob[0]=(ImageButton)layout.findViewById(R.id.mob1);
@@ -76,6 +83,10 @@ public class BattleWindow {
 
 
 
+    }
+
+    public void setBackbtn(int v){
+        backbtn.setVisibility(v);
     }
 
     public void setnowturn(int target,boolean on){
@@ -138,6 +149,15 @@ public class BattleWindow {
 
     public void setPlayerimage(int i,int image){
         player[i].setImageResource(image);
+    }
+
+    public void setmobVisibility(int i,int v){
+        mob[i].setVisibility(v);
+        mobhp[i].setVisibility(v);
+    }
+    public void setplayerVisibility(int i,int v){
+        player[i].setVisibility(v);
+        playerhp[i].setVisibility(v);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

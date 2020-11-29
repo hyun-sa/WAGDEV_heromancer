@@ -22,6 +22,8 @@ public class clickevent {
     public View.OnClickListener[] skillbtn=new View.OnClickListener[4]; //0공격 1스킬 2아이템 3강제처형
     public View.OnClickListener player;
     public View.OnClickListener[] itembtn=new View.OnClickListener[2];//0:hp포션, 1:mp포션
+    public View.OnClickListener backbtn;
+
     public clickevent(Resources r){
         this.resources=r;
     }
@@ -47,6 +49,21 @@ public class clickevent {
     }
 
     private void init_click(){
+
+        //돌아가기버튼
+        backbtn=new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v) {
+                if(mobtarget){
+                    handler.finish_select_mob();
+                }
+                if (playertarget){
+                    handler.finish_select_player();
+                }
+                handler.draw_startmenu();
+            }
+        };
 
         //시작메뉴
         //공격 시, 상태 1
@@ -293,10 +310,10 @@ public class clickevent {
                         case 4://버프
                             handler.buff(target);
                             break;
-                        case 6:
+                        case 6://hp포션
                             handler.usehpPotion(target);
                             break;
-                        case 7:
+                        case 7://mp포션
                             handler.usempPotion();
                     }
                     state=0;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.annotation.RequiresApi;
@@ -17,6 +18,7 @@ import com.yupodong.heromancer.object.Player;
 import com.yupodong.heromancer.object.Warrior;
 import com.yupodong.heromancer.object.data.Damage;
 import com.yupodong.heromancer.object.data.Heal;
+import com.yupodong.heromancer.object.subplayer;
 
 import java.util.Random;
 
@@ -38,6 +40,8 @@ public class BattleHandler {
     private int diemob=0;
     private Handler handler=new Handler();
     private int totalTurn=1;
+    private int[] potion={0,0};//0:hp, 1:mp
+
 
 
     private int mobnum;
@@ -46,8 +50,8 @@ public class BattleHandler {
         random.setSeed(System.currentTimeMillis());
         //이곳에서 맵같은걸로 초기화
         //임시제작
-        playernum=3;
-        mobnum=5;
+        playernum=2;
+        mobnum=random.nextInt(4)+2;
 
         if(mobnum<playernum) maxturn=playernum; else maxturn=mobnum;//최대 턴 수 지정
         enemy=new Mob[mobnum];//
@@ -67,29 +71,44 @@ public class BattleHandler {
         int num;
         for (int i=0;i<mobnum;i++){
             if(i<3)
-                num=random.nextInt(1);
-            else
                 num=random.nextInt(2);
+            else
+                num=random.nextInt(3);
             switch (num){
                 case 0:
                     enemy[i]= new Warrior();
-                    //이미지 변경
+                    this.window.setmobimage(i,R.drawable.warrior);
                     break;
                 case 1:
                     enemy[i]= new Knight();
+                    this.window.setmobimage(i,R.drawable.knight);
                     break;
                 case 2:
                     enemy[i]= new Archer();
+                    this.window.setmobimage(i,R.drawable.archer);
                     break;
             }
         }
+        for (int i=mobnum;i<5;i++){
+            this.window.setmobVisibility(i, View.INVISIBLE);
+        }
+
         //스텟입력 ,수정필요
         friendly[0]=new MagicKnight();
         for (int i=1;i<playernum;i++)
         {
-            friendly[i]=new MagicKnight();
+            friendly[i]=new subplayer();
         }
+        for (int i=playernum;i<3;i++){
+            this.window.setplayerVisibility(i,View.INVISIBLE);
+        }
+
+        //포션개수
+        potion[0]=3;
+        potion[1]=3;
     }
+
+
 
 
 
@@ -116,7 +135,7 @@ public class BattleHandler {
         //다음턴으로
         if (turn <= mobnum && enemy[turn].isLive())//공격자가 있는지 확인
         {
-            int target=random.nextInt(99);
+            int target=random.nextInt(100);
             for (int i=0; i<4;i++){
                 if(target<attack_per[i]){
                     target=i;
@@ -124,12 +143,12 @@ public class BattleHandler {
                 }
             }
 
+            window.test(Integer.toString(attack_per[0])+", "+Integer.toString(attack_per[1])+", "+Integer.toString(attack_per[2]));
             PlayerAttack(target);
 
 
         }
         turn = (turn + 1) % maxturn;
-        window.test(Integer.toString(turn));
 
         if(turn!=0){
             if (turn<playernum && friendly[turn].isLive()) {
@@ -161,7 +180,7 @@ public class BattleHandler {
                     friendly[i].buff_check(totalTurn);
                 }
             }
-            chatui.draw_startmenu();
+            draw_startmenu();
         }
 
     }
@@ -198,7 +217,6 @@ public class BattleHandler {
         if(!enemy[target].isLive()){
             mobdie(target);
         }
-        //몬스터 다죽을 시 추가 필요
 
 
         //다음턴 넘기기
@@ -214,10 +232,19 @@ public class BattleHandler {
 
     }
 
+
+
+    private void mobdie(int target){//죽었을 시 이벤트 처리
+        window.mobdie(target,enemy[target].getDieimage());
+        diemob++;
+        if(diemob==mobnum) end(true);
+    }
+
     public void MobAttackskill(int target){
         /*몬스터를 공격*/
         enemy[target].Hurt(friendly[turn].attackskill());
         window.setmobHP(target,enemy[target].get_HPper());
+        window.setplayerMP(friendly[0].get_MPper());
 
         //생존확인
         if(!enemy[target].isLive()){
@@ -238,18 +265,12 @@ public class BattleHandler {
 
     }
 
-    private void mobdie(int target){//죽었을 시 이벤트 처리
-        window.mobdie(target,enemy[target].getDieimage());
-        diemob++;
-        if(dieplayer==playernum) end(true);
-    }
-
 
     public void PlayerHeal(int target){
         /*플레이어를 회복시킴*/
-        friendly[target].recovery(friendly[turn].heal(500,0));
+        friendly[target].recovery(friendly[0].heal());
         window.setplayerHP(target,friendly[target].get_HPper());
-        window.setplayerMP(friendly[turn].get_MPper());
+        window.setplayerMP(friendly[0].get_MPper());
 
         //다음턴
         handler.postDelayed(new Runnable() {
@@ -264,7 +285,7 @@ public class BattleHandler {
 
     public void debuff(int target){
         enemy[target].add_buff(friendly[turn].usebuff(totalTurn,true));
-
+        window.setplayerMP(friendly[0].get_MPper());
         handler.postDelayed(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
@@ -276,7 +297,7 @@ public class BattleHandler {
 
     public void buff(int target){
         friendly[target].add_buff(friendly[turn].usebuff(totalTurn,false));
-
+        window.setplayerMP(friendly[0].get_MPper());
         handler.postDelayed(new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
@@ -307,6 +328,7 @@ public class BattleHandler {
             if(enemy[i].isLive())
                 window.finish_select_mob(i);
         }
+        window.setBackbtn(View.INVISIBLE);
         chatui.clear();//선택이 끝났기에 일이 처리되는 동안 선택불가
         return true;
     }
@@ -339,6 +361,7 @@ public class BattleHandler {
             if(friendly[i].isLive())
                 window.finish_select_player(i);
         }
+        window.setBackbtn(View.INVISIBLE);
         chatui.clear();//선택이 끝났기에 일이 처리되는 동안 선택불가
         return true;
     }
@@ -395,23 +418,23 @@ public class BattleHandler {
 
     public boolean Executionable()
     {//처형가능성
-        return (mobnum/2<=diemob);//죽은 몹이 적의 절반이상일경우
+        return (mobnum/2.0<=diemob);//죽은 몹이 적의 절반이상일경우
     }
 
     public boolean can_useusePotion(int num){//0:hp,1:mp,2:전체중 하나라도 가능
         switch (num){
             case 0://hp
-                if(true) {
+                if(potion[0]>0) {
                     return true;
                 }
                 break;
             case 1://mp
-                if(true) {
+                if(potion[1]>0) {
                     return true;
                 }
                 break;
             case 2://전체
-                if(true) {
+                if(potion[0]>0||potion[1]>0) {
                     return true;
                 }
                 break;
@@ -421,7 +444,7 @@ public class BattleHandler {
 
     public void usehpPotion(int target)
     {
-        //포션개수깎기 필요
+        potion[0]--;
         friendly[target].recovery(new Heal(500,0));
         window.setplayerHP(target,friendly[target].get_HPper());
 
@@ -437,7 +460,7 @@ public class BattleHandler {
 
     public void usempPotion(){
         //mp는 한명 밖에 없음
-        //포션개수깎기 필요
+        potion[1]--;
         friendly[0].recovery(new Heal(0,500));
         window.setplayerMP(friendly[0].get_MPper());
 
@@ -453,6 +476,7 @@ public class BattleHandler {
 
 
     public void draw_skillmenu(){
+        window.setBackbtn(View.VISIBLE);
         chatui.draw_skillmenu();
     }
 
@@ -461,11 +485,13 @@ public class BattleHandler {
     //chatui
     public void draw_startmenu(){
         window.setnowturn(turn,true);
+        window.setBackbtn(View.INVISIBLE);
         chatui.draw_startmenu();
     }
 
     public void draw_itemmenu(){
-        chatui.draw_itemmenu();
+        window.setBackbtn(View.VISIBLE);
+        chatui.draw_itemmenu(potion);
     }
 
     public void chatuiclear(){
@@ -477,9 +503,7 @@ public class BattleHandler {
     }
 
     private void end(boolean win){
-        window.test("456");
         endfunc.end();
-
         if(win)
         {
 

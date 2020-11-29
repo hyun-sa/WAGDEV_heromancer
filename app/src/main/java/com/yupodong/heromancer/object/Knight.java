@@ -1,5 +1,6 @@
 package com.yupodong.heromancer.object;
 
+import com.yupodong.heromancer.R;
 import com.yupodong.heromancer.object.data.Damage;
 
 public class Knight extends Mob{
@@ -13,6 +14,7 @@ public class Knight extends Mob{
         Mag=0;       //마력
         Def=100;       //방어력
         MRt=100;       //마법 저항력
+        Dieimage= R.drawable.knightdie;
     }
 
     @Override
