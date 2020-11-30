@@ -28,11 +28,6 @@ public class battle extends AppCompatActivity {
     }
 
     public void end(){
-        finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-
+        super.onBackPressed();
     }
 }
