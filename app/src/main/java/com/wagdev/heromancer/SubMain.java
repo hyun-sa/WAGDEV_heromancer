@@ -27,6 +27,17 @@ public class SubMain extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        mediaPlayer = MediaPlayer.create(this, R.raw.in_main_bgm);
+        if (!mediaPlayer.isPlaying())
+        {
+            mediaPlayer.start();
+        }
+    }
+
     public void onButtonTombClicked(View view) {
         Intent intent = new Intent(getApplicationContext(), Tomb.class);
         startActivity(intent);
