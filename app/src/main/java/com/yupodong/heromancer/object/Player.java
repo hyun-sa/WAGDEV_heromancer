@@ -7,7 +7,7 @@ import com.yupodong.heromancer.object.data.Heal;
 
 abstract public class Player extends Entity{
 
-    private double skillmp[]={100,100,100,100};//스킬 마나 0:공격스킬,1:치료스킬,2:버프,3:디버프
+    private double skillmp[]={45,45,45,45};//스킬 마나 0:공격스킬,1:치료스킬,2:버프,3:디버프
     protected int subplayer_kind=-1;
 
     public Player(){
@@ -20,8 +20,8 @@ abstract public class Player extends Entity{
 
     @Override
     public void Hurt(Damage damage){ //데미지를 입을때
-        HP-=damage.Physical*(100.0/Def);
-        HP-=damage.Magic*(100.0/MRt);
+        HP-=damage.Physical*(1-(Def/(Def+100)));
+        HP-=damage.Magic*(1-(MRt/(MRt+100)));
         HP-=damage.trued;
         if(HP<=0){
             HP=0;
@@ -36,7 +36,7 @@ abstract public class Player extends Entity{
 
     public Heal heal(){
         MP-=skillmp[1];
-        return new Heal(Mag*3,0);
+        return new Heal(Mag*2,0);
     }
 
 
@@ -46,11 +46,11 @@ abstract public class Player extends Entity{
 
         if(isdebuff){
             MP-=skillmp[2];
-            return new Buff(nowturn+3,-1000,-10,-10,-10);
+            return new Buff(nowturn+3,0,0,-3*(Mag*0.02),0);
         }
         else{
             MP-=skillmp[3];
-            return new Buff(nowturn+3,1000,10,10,10);
+            return new Buff(nowturn+3,3*(Mag*0.04),0,10,10);
         }
     }
 

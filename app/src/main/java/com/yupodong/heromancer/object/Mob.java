@@ -12,8 +12,8 @@ abstract public class Mob extends Entity{
 
     @Override
     public void Hurt(Damage damage){ //데미지를 입을때
-        HP-=damage.Physical*(100.0/Def);
-        HP-=damage.Magic*(100.0/MRt);
+        HP-=damage.Physical*(1-(Def/(Def+100)));
+        HP-=damage.Magic*(1-(MRt/(MRt+100)));
         HP-=damage.trued;
         if(HP<=0) {
             HP=0;

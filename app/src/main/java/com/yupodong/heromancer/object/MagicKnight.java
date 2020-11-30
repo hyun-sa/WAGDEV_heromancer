@@ -8,19 +8,19 @@ public class MagicKnight extends Player {
 //주인공
     public MagicKnight(){
         super();
-        MaxHP=500;     //최대hp
-        HP=MaxHP;        //현재 hp
-        MaxMP=500;     //최대 mp
-        MP=MaxMP;        //현재 mp
-        Atk=50;       //공격력
-        Mag=50;       //마력
-        Def=150;       //방어력ㅁ
-        MRt=100;       //마법 저항력
+        MaxHP=100;     //최대hp
+        MaxMP=100;     //최대 mp
+        HP=MaxHP;      //현재 hp
+        MP=MaxMP;      //현재 mp
+        Atk=45;       //공격력
+        Mag=30;       //마력
+        Def=20;       //방어력
+        MRt=15;       //마법 저항력
     }
 
     @Override
     public Damage Attack() {
-        return new Damage(Atk,0,300);//임시등록
+        return new Damage(Atk,0,0);//임시등록
     }
 
 

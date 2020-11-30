@@ -43,7 +43,6 @@ public class BattleHandler {
     private int[] potion={0,0};//0:hp, 1:mp
 
 
-
     private int mobnum;
     private int playernum;
     public BattleHandler(LinearLayout chat, ConstraintLayout window, Context con, clickevent c){
@@ -57,7 +56,6 @@ public class BattleHandler {
         enemy=new Mob[mobnum];//
         friendly= new Player[playernum];
 
-
         c.setHandler(this);
         set_per();
 
@@ -68,25 +66,25 @@ public class BattleHandler {
         this.c=c;
         endfunc=(battle)con;
 
+
         int num;
+        int[] mobper = {10, 60, 100};
         for (int i=0;i<mobnum;i++){
-            if(i<3)
-                num=random.nextInt(2);
-            else
-                num=random.nextInt(3);
-            switch (num){
-                case 0:
-                    enemy[i]= new Warrior();
-                    this.window.setmobimage(i,R.drawable.warrior);
-                    break;
-                case 1:
-                    enemy[i]= new Knight();
-                    this.window.setmobimage(i,R.drawable.knight);
-                    break;
-                case 2:
-                    enemy[i]= new Archer();
-                    this.window.setmobimage(i,R.drawable.archer);
-                    break;
+            if(i<3) num = random.nextInt(60);
+            else num = random.nextInt(100);
+
+            this.window.test(Integer.toString(num));
+            if(num< mobper[0]) {
+                enemy[i] = new Knight();
+                this.window.setmobimage(i, R.drawable.knight);
+            }
+            else if(num< mobper[1]) {
+                enemy[i] = new Warrior();
+                this.window.setmobimage(i, R.drawable.warrior);
+            }
+            else if(num< mobper[2]) {
+                enemy[i] = new Archer();
+                this.window.setmobimage(i, R.drawable.archer);
             }
         }
         for (int i=mobnum;i<5;i++){
@@ -204,7 +202,7 @@ public class BattleHandler {
         dieplayer++;
         attack_per[target]=0;
         set_per();
-        if(dieplayer==playernum) end(false);//패배 (수정필요)
+        if(dieplayer==playernum||target==0) end(false);//패배 (수정필요)
     }
 
 

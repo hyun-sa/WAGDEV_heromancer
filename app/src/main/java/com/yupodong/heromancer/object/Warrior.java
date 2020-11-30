@@ -6,14 +6,14 @@ import com.yupodong.heromancer.object.data.Damage;
 public class Warrior extends Mob{
     public Warrior(){
         super();
-        MaxHP=700;     //최대hp
+        MaxHP=50;     //최대hp
+        MaxMP=0;     //최대 mp
         HP=MaxHP;        //현재 hp
-        MaxMP=500;     //최대 mp
         MP=MaxMP;        //현재 mp
-        Atk=50;       //공격력
+        Atk=15;       //공격력
         Mag=0;          //마력
-        Def=200;       //방어력
-        MRt=70;       //마법 저항력
+        Def=20;       //방어력
+        MRt=15;       //마법 저항력
         Dieimage= R.drawable.warriordie;
     }
 

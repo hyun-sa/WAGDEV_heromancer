@@ -8,14 +8,14 @@ public class Archer extends Mob{
 
     public Archer(){
         super();
-        MaxHP=400;     //최대hp
+        MaxHP=45;     //최대hp
+        MaxMP=0;     //최대 mp
         HP=MaxHP;        //현재 hp
-        MaxMP=500;     //최대 mp
         MP=MaxMP;        //현재 mp
-        Atk=80;       //공격력
+        Atk=20;       //공격력
         Mag=0;       //마력
-        Def=50;       //방어력
-        MRt=50;       //마법 저항력
+        Def=10;       //방어력
+        MRt=15;       //마법 저항력
         Dieimage=R.drawable.archerdie;
 
     }

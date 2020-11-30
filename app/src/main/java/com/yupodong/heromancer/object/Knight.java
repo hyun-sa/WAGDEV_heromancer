@@ -6,14 +6,14 @@ import com.yupodong.heromancer.object.data.Damage;
 public class Knight extends Mob{
     public Knight(){
         super();
-        MaxHP=600;     //최대hp
+        MaxHP=100;     //최대hp
+        MaxMP=0;     //최대 mp
         HP=MaxHP;        //현재 hp
-        MaxMP=500;     //최대 mp
         MP=MaxMP;        //현재 mp
-        Atk=100;       //공격력
+        Atk=10;       //공격력
         Mag=0;       //마력
-        Def=100;       //방어력
-        MRt=100;       //마법 저항력
+        Def=35;       //방어력
+        MRt=5;       //마법 저항력
         Dieimage= R.drawable.knightdie;
     }
 
