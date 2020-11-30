@@ -1,6 +1,7 @@
 package com.wagdev.heromancer;
 
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
@@ -12,6 +13,7 @@ import com.wagdev.heromancer.R;
 
 public class battle extends AppCompatActivity {
 
+    MediaPlayer mediaPlayer;
     BattleHandler handler;
     clickevent c;
     @Override
@@ -24,10 +26,16 @@ public class battle extends AppCompatActivity {
 
         c=new clickevent(getResources());
         handler=new BattleHandler((LinearLayout)findViewById(R.id.chat),(ConstraintLayout)findViewById(R.id.window),this,c);
+        mediaPlayer = MediaPlayer.create(this, R.raw.battle);
+        if (!mediaPlayer.isPlaying())
+        {
+            mediaPlayer.start();
+        }
 
     }
 
     public void end(){
         super.onBackPressed();
+        mediaPlayer.stop();
     }
 }
