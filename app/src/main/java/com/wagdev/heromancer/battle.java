@@ -16,6 +16,7 @@ public class battle extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     BattleHandler handler;
     clickevent c;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,11 @@ public class battle extends AppCompatActivity {
         c=new clickevent(getResources());
         handler=new BattleHandler((LinearLayout)findViewById(R.id.chat),(ConstraintLayout)findViewById(R.id.window),this,c);
         mediaPlayer = MediaPlayer.create(this, R.raw.battle);
-        if (!mediaPlayer.isPlaying())
+        //사운드 on/off 변경된 설정 반영하기 위해
+        if(!Setting.soundOnOff){
+            mediaPlayer.pause();
+        }
+        else if (!mediaPlayer.isPlaying() || Setting.soundOnOff)
         {
             mediaPlayer.start();
         }
