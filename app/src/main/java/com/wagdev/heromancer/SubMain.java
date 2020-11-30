@@ -31,11 +31,18 @@ public class SubMain extends AppCompatActivity {
     protected void onResume()
     {
         super.onResume();
-        mediaPlayer = MediaPlayer.create(this, R.raw.in_main_bgm);
         if (!mediaPlayer.isPlaying())
         {
             mediaPlayer.start();
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        mediaPlayer.stop();
+        finish();
+        super.onBackPressed();
     }
 
     public void onButtonTombClicked(View view) {

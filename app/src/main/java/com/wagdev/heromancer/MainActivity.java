@@ -40,6 +40,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if (!mediaPlayer.isPlaying())
+        {
+            mediaPlayer.start();
+        }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+
+    }
+
     public void OnClickHandler(View view)
     {
         soundPool.play(soundID,1f,1f,0,0,1f);
