@@ -388,8 +388,13 @@ public class BattleHandler {
         return true;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
 
+
+    public void stopmusic(){
+        endfunc.mediaPlayer.stop();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void execution(int num, final boolean isred, Drawable d)
     {
         if(num>0){
@@ -415,6 +420,7 @@ public class BattleHandler {
         }
         else
         {
+            //도덕성 감소 하기
             for (int i=0;i<mobnum;i++)
             {
                 if(enemy[i].isLive())

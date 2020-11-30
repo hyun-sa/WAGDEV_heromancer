@@ -125,6 +125,7 @@ public class clickevent {
             public void onClick(View v) {
                 if(handler.Executionable())
                 {
+                    handler.stopmusic();
                     handler.chatuiclear();
                     handler.execution(3,true,d);
                 }

@@ -35,7 +35,12 @@ public class battle extends AppCompatActivity {
     }
 
     public void end(){
-        super.onBackPressed();
         mediaPlayer.stop();
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }
