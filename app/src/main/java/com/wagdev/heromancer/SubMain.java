@@ -1,6 +1,7 @@
 package com.wagdev.heromancer;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -11,12 +12,19 @@ import com.wagdev.heromancer.R;
 
 public class SubMain extends AppCompatActivity {
 
+
+    MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submain);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
+        mediaPlayer = MediaPlayer.create(this, R.raw.in_main_bgm);
+        if (!mediaPlayer.isPlaying())
+        {
+            mediaPlayer.start();
+        }
     }
 
     public void onButtonTombClicked(View view) {
@@ -36,6 +44,7 @@ public class SubMain extends AppCompatActivity {
 
     public void onButtonFieldClicked(View view) {
         Intent intent = new Intent(getApplicationContext(), battle.class);
+        mediaPlayer.stop();
         startActivity(intent);
     }
 }
