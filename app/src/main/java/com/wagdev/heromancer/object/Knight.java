@@ -13,7 +13,7 @@ public class Knight extends Mob{
         Atk=10;       //공격력
         Mag=0;       //마력
         Def=35;       //방어력
-        MRt=5;       //마법 저항력
+        MRt=10;       //마법 저항력
         Dieimage= R.drawable.knightdie;
     }
 

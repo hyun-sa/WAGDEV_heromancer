@@ -23,7 +23,7 @@
             android:layout_marginTop="48dp"
             android:layout_marginEnd="48dp"
             android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toStartOf="@+id/mob3"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="48dp"
             android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toStartOf="@+id/mob4"
             app:layout_constraintTop_toBottomOf="@+id/mob2hp" />
@@ -47,7 +47,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="72dp"
             android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mob3hp" />
@@ -59,7 +59,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="72dp"
             android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mob4hp" />
@@ -71,7 +71,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="72dp"
             android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mob5hp" />
@@ -83,7 +83,7 @@
             android:layout_marginStart="150dp"
             android:layout_marginTop="5dp"
             android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/p2"
             app:srcCompat="@drawable/player" />
@@ -95,7 +95,7 @@
             android:layout_marginStart="125dp"
             android:layout_marginTop="4dp"
             android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/playermp1"
             app:srcCompat="@drawable/player" />
@@ -107,7 +107,7 @@
             android:layout_marginStart="96dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/transparent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/p3"
             app:srcCompat="@drawable/player" />

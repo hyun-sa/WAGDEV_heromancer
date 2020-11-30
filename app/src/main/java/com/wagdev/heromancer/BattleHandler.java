@@ -97,12 +97,24 @@ public class BattleHandler {
         for (int i=1;i<playernum;i++)
         {
             friendly[i]=new subplayer();
+            switch(friendly[i].getSubplayer_kind()){
+                case 0:
+                    this.window.setPlayerimage(i, R.drawable.playerknight);
+                    break;
+                case 1:
+                    this.window.setPlayerimage(i, R.drawable.playerwarrior);
+                    break;
+                case 2:
+                    this.window.setPlayerimage(i, R.drawable.playerarcher);
+                    break;
+
+        }
         }
         for (int i=playernum;i<3;i++){
             this.window.setplayerVisibility(i,View.INVISIBLE);
         }
 
-        //포션개수
+        //포션개수 입력수정필요
         potion[0]=3;
         potion[1]=3;
     }
@@ -200,10 +212,11 @@ public class BattleHandler {
 
     private void playerdie(int target){//플레이어 사망시 처리
         window.playerdie(target,friendly[target].getDieimage());
+        if(target==0) end(false);//패배 (수정필요)
         dieplayer++;
         attack_per[target]=0;
         set_per();
-        if(dieplayer==playernum||target==0) end(false);//패배 (수정필요)
+
     }
 
 
@@ -502,16 +515,21 @@ public class BattleHandler {
     }
 
     private void end(boolean win){
-        endfunc.end();
         if(win)
         {
+            //돈수정
+            //포션개수수정
+            //승리
 
         }
         else
         {
-
+            //패배
         }
+        endfunc.end();
     }
+
+
 
 
 

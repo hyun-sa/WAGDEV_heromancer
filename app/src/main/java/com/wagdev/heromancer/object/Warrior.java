@@ -13,7 +13,7 @@ public class Warrior extends Mob{
         Atk=15;       //공격력
         Mag=0;          //마력
         Def=20;       //방어력
-        MRt=15;       //마법 저항력
+        MRt=30;       //마법 저항력
         Dieimage= R.drawable.warriordie;
     }
 

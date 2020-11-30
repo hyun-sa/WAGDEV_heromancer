@@ -18,6 +18,18 @@ public class MagicKnight extends Player {
         MRt=15;       //마법 저항력
     }
 
+    public MagicKnight(int[] stat){
+        super();
+        MaxHP=stat[0];     //최대hp
+        MaxMP=stat[1];     //최대 mp
+        HP=MaxHP;      //현재 hp
+        MP=MaxMP;      //현재 mp
+        Atk=stat[2];       //공격력
+        Mag=stat[3];       //마력
+        Def=stat[4];       //방어력
+        MRt=stat[5];       //마법 저항력
+    }
+
     @Override
     public Damage Attack() {
         return new Damage(Atk,0,0);//임시등록

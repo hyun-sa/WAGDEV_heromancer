@@ -15,7 +15,7 @@ public class Archer extends Mob{
         Atk=20;       //공격력
         Mag=0;       //마력
         Def=10;       //방어력
-        MRt=15;       //마법 저항력
+        MRt=30;       //마법 저항력
         Dieimage=R.drawable.archerdie;
 
     }

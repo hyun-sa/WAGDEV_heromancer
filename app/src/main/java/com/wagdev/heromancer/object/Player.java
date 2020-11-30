@@ -31,7 +31,7 @@ abstract public class Player extends Entity{
 
     public Damage attackskill(){
         MP-=skillmp[0];
-        return new Damage(Atk,Mag,50);
+        return new Damage(0,Mag*2,0);
     }
 
     public Heal heal(){
