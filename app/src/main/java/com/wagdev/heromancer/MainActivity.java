@@ -1,10 +1,9 @@
-package com.yupodong.heromancer;
+package com.wagdev.heromancer;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -15,6 +14,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.wagdev.heromancer.R;
 
 import java.util.Objects;
 

@@ -1,9 +1,12 @@
-package com.yupodong.heromancer.object;
+package com.wagdev.heromancer.object;
 
-import com.yupodong.heromancer.object.data.Damage;
+import com.wagdev.heromancer.object.data.Damage;
 
-public class subplayer extends Player{
-    public subplayer(){
+public class MagicKnight extends Player {
+
+
+//주인공
+    public MagicKnight(){
         super();
         MaxHP=100;     //최대hp
         MaxMP=100;     //최대 mp
@@ -13,7 +16,6 @@ public class subplayer extends Player{
         Mag=30;       //마력
         Def=20;       //방어력
         MRt=15;       //마법 저항력
-        subplayer_kind=0;//몹종류
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.yupodong.heromancer;
+package com.wagdev.heromancer;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.wagdev.heromancer.R;
 
 public class battle extends AppCompatActivity {
 

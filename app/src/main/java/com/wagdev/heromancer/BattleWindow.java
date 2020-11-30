@@ -1,4 +1,4 @@
-package com.yupodong.heromancer;
+package com.wagdev.heromancer;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.wagdev.heromancer.R;
 
 public class BattleWindow {
     private ImageButton[] mob=new ImageButton[5];
@@ -29,8 +31,8 @@ public class BattleWindow {
     private int playerNum;
     private ConstraintLayout layout;
     private Context context;
-    private com.yupodong.heromancer.clickevent c;
-    public BattleWindow(ConstraintLayout l, Context con, int playerNum, int mobNum, com.yupodong.heromancer.clickevent c){
+    private clickevent c;
+    public BattleWindow(ConstraintLayout l, Context con, int playerNum, int mobNum, clickevent c){
         this.layout=l;
         this.context=con;
         this.playerNum=playerNum;

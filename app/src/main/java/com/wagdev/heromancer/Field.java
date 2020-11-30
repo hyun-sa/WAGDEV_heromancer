@@ -1,9 +1,11 @@
-package com.yupodong.heromancer;
+package com.wagdev.heromancer;
 
 import android.os.Bundle;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.wagdev.heromancer.R;
 
 public class Field extends AppCompatActivity {
     @Override

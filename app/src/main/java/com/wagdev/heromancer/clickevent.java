@@ -1,4 +1,4 @@
-package com.yupodong.heromancer;
+package com.wagdev.heromancer;
 
 import android.annotation.SuppressLint;
 import android.content.res.Resources;
@@ -7,6 +7,8 @@ import android.os.Build;
 import android.view.View;
 
 import androidx.annotation.RequiresApi;
+
+import com.wagdev.heromancer.R;
 
 public class clickevent {
     private Resources resources;

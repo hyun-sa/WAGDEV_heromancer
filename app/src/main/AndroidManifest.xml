@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yupodong.heromancer">
+    package="com.wagdev.heromancer">
 
     <application
         android:allowBackup="true"
@@ -13,8 +13,8 @@
 
 
         <!--theme 새로 생성, style참고-->
-        <activity android:name=".Setting" android:theme="@style/Theme.MyDialog"/>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.wagdev.heromancer.Setting" android:theme="@style/Theme.MyDialog"/>
+        <activity android:name="com.wagdev.heromancer.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,15 +23,15 @@
         </activity>
 
         <!--        submain        -->
-        <activity android:name=".SubMain"
+        <activity android:name="com.wagdev.heromancer.SubMain"
             android:screenOrientation="landscape"/>
-        <activity android:name=".Store"
+        <activity android:name="com.wagdev.heromancer.Store"
             android:screenOrientation="landscape"/>
-        <activity android:name=".battle"
+        <activity android:name="com.wagdev.heromancer.battle"
             android:screenOrientation="landscape"/>
-        <activity android:name=".Tomb"
+        <activity android:name="com.wagdev.heromancer.Tomb"
             android:screenOrientation="landscape"/>
-        <activity android:name=".Training"
+        <activity android:name="com.wagdev.heromancer.Training"
             android:screenOrientation="landscape"/>
     </application>
 

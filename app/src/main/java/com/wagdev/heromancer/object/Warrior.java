@@ -1,7 +1,7 @@
-package com.yupodong.heromancer.object;
+package com.wagdev.heromancer.object;
 
-import com.yupodong.heromancer.R;
-import com.yupodong.heromancer.object.data.Damage;
+import com.wagdev.heromancer.object.data.Damage;
+import com.wagdev.heromancer.R;
 
 public class Warrior extends Mob{
     public Warrior(){

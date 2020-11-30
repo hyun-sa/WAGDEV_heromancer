@@ -1,15 +1,17 @@
-package com.yupodong.heromancer;
+package com.wagdev.heromancer;
 
 import android.os.Bundle;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Training extends AppCompatActivity {
+import com.wagdev.heromancer.R;
+
+public class Tomb extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.training);
+        setContentView(R.layout.tomb);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
     }

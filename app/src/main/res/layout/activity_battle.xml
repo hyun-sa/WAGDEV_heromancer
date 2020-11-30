@@ -8,7 +8,7 @@
     android:layout_margin="0dp"
     android:background="#A9DAF1"
     android:orientation="vertical"
-    tools:context=".battle">
+    tools:context="com.wagdev.heromancer.battle">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/window"
