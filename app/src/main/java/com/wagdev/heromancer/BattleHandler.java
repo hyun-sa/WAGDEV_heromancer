@@ -1,4 +1,4 @@
-package com.yupodong.heromancer;
+package com.wagdev.heromancer;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -10,15 +10,16 @@ import android.widget.LinearLayout;
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.yupodong.heromancer.object.Archer;
-import com.yupodong.heromancer.object.Knight;
-import com.yupodong.heromancer.object.MagicKnight;
-import com.yupodong.heromancer.object.Mob;
-import com.yupodong.heromancer.object.Player;
-import com.yupodong.heromancer.object.Warrior;
-import com.yupodong.heromancer.object.data.Damage;
-import com.yupodong.heromancer.object.data.Heal;
-import com.yupodong.heromancer.object.subplayer;
+import com.wagdev.heromancer.object.Archer;
+import com.wagdev.heromancer.object.Knight;
+import com.wagdev.heromancer.object.MagicKnight;
+import com.wagdev.heromancer.object.Mob;
+import com.wagdev.heromancer.object.Player;
+import com.wagdev.heromancer.object.Warrior;
+import com.wagdev.heromancer.object.data.Damage;
+import com.wagdev.heromancer.object.data.Heal;
+import com.wagdev.heromancer.R;
+import com.wagdev.heromancer.object.subplayer;
 
 import java.util.Random;
 

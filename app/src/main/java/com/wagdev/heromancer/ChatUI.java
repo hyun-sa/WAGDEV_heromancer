@@ -1,4 +1,4 @@
-package com.yupodong.heromancer;
+package com.wagdev.heromancer;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -12,9 +12,9 @@ import androidx.annotation.RequiresApi;
 public class ChatUI {
     private final LinearLayout layout;
     private final Context context;
-    private final com.yupodong.heromancer.clickevent clickevent;
+    private final com.wagdev.heromancer.clickevent clickevent;
 
-    public ChatUI(LinearLayout l, Context con, com.yupodong.heromancer.clickevent clickevent){
+    public ChatUI(LinearLayout l, Context con, com.wagdev.heromancer.clickevent clickevent){
         this.layout=l;
         this.context=con;
         this.clickevent=clickevent;

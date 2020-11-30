@@ -1,4 +1,4 @@
-package com.yupodong.heromancer.object.data;
+package com.wagdev.heromancer.object.data;
 
 public class Buff implements Comparable<Buff>{
     public double Atk;       //공격력

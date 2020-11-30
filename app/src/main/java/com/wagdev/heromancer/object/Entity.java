@@ -1,10 +1,10 @@
-package com.yupodong.heromancer.object;
+package com.wagdev.heromancer.object;
 
 
-import com.yupodong.heromancer.R;
-import com.yupodong.heromancer.object.data.Buff;
-import com.yupodong.heromancer.object.data.Damage;
-import com.yupodong.heromancer.object.data.Heal;
+import com.wagdev.heromancer.object.data.Buff;
+import com.wagdev.heromancer.object.data.Damage;
+import com.wagdev.heromancer.object.data.Heal;
+import com.wagdev.heromancer.R;
 
 import java.util.PriorityQueue;
 
