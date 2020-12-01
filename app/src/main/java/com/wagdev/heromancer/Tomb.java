@@ -41,6 +41,7 @@ public class Tomb extends AppCompatActivity {
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
 
         int i=selectnum();
+        if(i==-1) return;
 
     }
 
@@ -52,6 +53,7 @@ public class Tomb extends AppCompatActivity {
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
 
         int i=selectnum();
+        if(i==-1) return;
 
     }
 
@@ -63,7 +65,7 @@ public class Tomb extends AppCompatActivity {
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
 
         int i=selectnum();
-
+        if(i==-1) return;
 
 
 
