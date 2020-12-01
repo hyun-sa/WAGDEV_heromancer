@@ -12,11 +12,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import com.wagdev.heromancer.object.subplayer;
+import com.wagdev.heromancer.object.MagicKnight;
 
 public class DataBase extends AppCompatActivity {
 
     //쫄다구 최대수
-    public static int CHARACTER_NUMBER = 5;
+    public static int CHARACTER_NUMBER = 2;
     //플레이어 스텟 수
     public static final int PLAYER_STAT = 4;
     //돈
@@ -24,16 +26,72 @@ public class DataBase extends AppCompatActivity {
     //플레이어 스텟
     public static int[] player = new int[4];
     //쫄따구 수
-    public static int subnum;
+    public static int subnum=0;
     //쫄따구 스텟
     public static int[][] character = new int[CHARACTER_NUMBER][6];
     //hp포션개수
     public static int hp_potion;
     //mp포션개수
     public static int mp_potion;
+    //도덕성
+    private static int Morality;
+    //전투승리여부
+    private static boolean win;
+
+
     // money subnum hp_potion mp_potion
     // player
     // character
+
+    public static int getMorality() {
+        return Morality;
+    }
+
+    public void plus_Morality(int amount){
+        Morality+=amount;
+    }
+
+    public static int getMoney() {
+        return money;
+    }
+
+    public void plus_money(int amount){
+        money+=amount;
+    }
+
+    public static int getHp_potion() {
+        return hp_potion;
+    }
+
+    public void plus_hppotion(int amount){
+        hp_potion+=amount;
+    }
+
+    public static int getMp_potion() {
+        return mp_potion;
+    }
+
+    public void plus_mppotion(int amount){
+        mp_potion+=amount;
+    }
+
+    public static int getSubnum() {
+        return subnum;
+    }
+
+    public void plus_subnum(int amount){
+        subnum+=amount;
+    }
+
+    public subplayer get_subplayer(int i){
+        return new subplayer(character[i]);
+    }
+
+    public MagicKnight get_player(int i){
+        return new MagicKnight(player);
+    }
+
+
 
 
     public void init(Context context){
