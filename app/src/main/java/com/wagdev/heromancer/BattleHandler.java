@@ -33,6 +33,7 @@ public class BattleHandler {
     private Drawable d;
     private clickevent c;
     private battle endfunc;
+
     //상태
     private int turn=0;//0~maxturn-1까지만
     private int maxturn;
@@ -114,8 +115,8 @@ public class BattleHandler {
         }
 
         //포션개수 입력수정필요
-        potion[0]=DataBase.getHp_potion();
-        potion[1]=DataBase.getMp_potion();
+        potion[0]=3;
+        potion[1]=3;
     }
 
 
