@@ -66,6 +66,7 @@ public class BattleHandler {
         d=c.getResources().getDrawable(R.color.강제처형);
         this.c=c;
         endfunc=(battle)con;
+        this.window.test("123: "+Integer.toString(playernum));
 
 
         int num;
@@ -108,6 +109,8 @@ public class BattleHandler {
                             break;
                         case 2:
                             this.window.setPlayerimage(i, R.drawable.playerarcher);
+                            break;
+                        default:
                             break;
 
                     }

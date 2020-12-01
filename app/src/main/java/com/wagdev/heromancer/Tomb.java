@@ -34,7 +34,7 @@ public class Tomb extends AppCompatActivity {
     }
 
     public void warriorbtn(View v){
-        if(DataBase.getMorality()<50||DataBase.getSubnum()<2){
+        if(DataBase.getMorality()<50||DataBase.getSubnum()>=2){
             return;
         }
 
@@ -50,7 +50,7 @@ public class Tomb extends AppCompatActivity {
     }
 
     public void Archerbtn(View v){
-        if(DataBase.getMorality()<50||DataBase.getSubnum()<2){
+        if(DataBase.getMorality()<50||DataBase.getSubnum()>=2){
             return;
         }
 
@@ -66,7 +66,7 @@ public class Tomb extends AppCompatActivity {
     }
 
     public void Knightbtn(View v){
-        if(DataBase.getMorality()<50||DataBase.getSubnum()<2){
+        if(DataBase.getMorality()<50||DataBase.getSubnum()>=2){
             return;
         }
 
