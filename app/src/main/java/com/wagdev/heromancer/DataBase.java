@@ -47,7 +47,7 @@ public class DataBase extends AppCompatActivity {
         return Morality;
     }
 
-    public void plus_Morality(int amount){
+    public static void plus_Morality(int amount){
         Morality+=amount;
         if(Morality>100) Morality=100;
     }
@@ -56,7 +56,7 @@ public class DataBase extends AppCompatActivity {
         return money;
     }
 
-    public void plus_money(int amount){
+    public static void plus_money(int amount){
         money+=amount;
     }
 
@@ -64,7 +64,7 @@ public class DataBase extends AppCompatActivity {
         return hp_potion;
     }
 
-    public void plus_hppotion(int amount){
+    public static void plus_hppotion(int amount){
         hp_potion+=amount;
     }
 
@@ -72,7 +72,7 @@ public class DataBase extends AppCompatActivity {
         return mp_potion;
     }
 
-    public void plus_mppotion(int amount){
+    public static void plus_mppotion(int amount){
         mp_potion+=amount;
     }
 
@@ -80,15 +80,15 @@ public class DataBase extends AppCompatActivity {
         return subnum;
     }
 
-    public void plus_subnum(int amount){
+    public static void plus_subnum(int amount){
         subnum+=amount;
     }
 
-    public subplayer get_subplayer(int i){
+    public static subplayer get_subplayer(int i){
         return new subplayer(character[i]);
     }
 
-    public MagicKnight get_player(int i){
+    public static MagicKnight get_player(int i){
         return new MagicKnight(player);
     }
 
