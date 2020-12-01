@@ -93,12 +93,12 @@ public class BattleHandler {
         }
 
         //스텟입력 ,수정필요
-        friendly[0]=new MagicKnight();
+        friendly[0]=DataBase.get_player();
         for (int i=1;i<playernum;i++)
         {
             for(int j=i-1;j<2;j++) {
                 if(DataBase.getsub(i)) {
-                    friendly[i] = new subplayer();//데이터 베이스에서 생성되게
+                    friendly[i] = DataBase.get_subplayer(i);//데이터 베이스에서 생성되게
                     switch (friendly[i].getSubplayer_kind()) {
                         case 0:
                             this.window.setPlayerimage(i, R.drawable.playerknight);

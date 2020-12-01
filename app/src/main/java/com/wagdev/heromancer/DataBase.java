@@ -104,11 +104,11 @@ public class DataBase extends AppCompatActivity {
     }
 
     public static subplayer get_subplayer(int i){
-        return new subplayer(character[i]);
+        return new subplayer();
     }
 
-    public static MagicKnight get_player(int i){
-        return new MagicKnight(player);
+    public static MagicKnight get_player(){
+        return new MagicKnight();
     }
 
     public static boolean isWin() {
