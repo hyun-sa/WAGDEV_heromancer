@@ -540,7 +540,7 @@ public class BattleHandler {
         if(win)
         {
             //몹 수 수정
-            DataBase.plus_subnum(-playernum);
+            DataBase.plus_subnum(-dieplayer);
             //도덕성
             DataBase.plus_Morality(5);
             //돈
