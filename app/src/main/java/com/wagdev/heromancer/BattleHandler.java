@@ -50,7 +50,7 @@ public class BattleHandler {
         random.setSeed(System.currentTimeMillis());
         //이곳에서 맵같은걸로 초기화
         //임시제작
-        playernum=2;
+        playernum=DataBase.getSubnum()+1;
         mobnum=random.nextInt(4)+2;
 
         if(mobnum<playernum) maxturn=playernum; else maxturn=mobnum;//최대 턴 수 지정
@@ -96,19 +96,24 @@ public class BattleHandler {
         friendly[0]=new MagicKnight();
         for (int i=1;i<playernum;i++)
         {
-            friendly[i]=new subplayer();
-            switch(friendly[i].getSubplayer_kind()){
-                case 0:
-                    this.window.setPlayerimage(i, R.drawable.playerknight);
-                    break;
-                case 1:
-                    this.window.setPlayerimage(i, R.drawable.playerwarrior);
-                    break;
-                case 2:
-                    this.window.setPlayerimage(i, R.drawable.playerarcher);
-                    break;
+            for(int j=i-1;j<2;j++) {
+                if(DataBase.getsub(i)) {
+                    friendly[i] = new subplayer();//데이터 베이스에서 생성되게
+                    switch (friendly[i].getSubplayer_kind()) {
+                        case 0:
+                            this.window.setPlayerimage(i, R.drawable.playerknight);
+                            break;
+                        case 1:
+                            this.window.setPlayerimage(i, R.drawable.playerwarrior);
+                            break;
+                        case 2:
+                            this.window.setPlayerimage(i, R.drawable.playerarcher);
+                            break;
 
-        }
+                    }
+                }
+            }
+
         }
         for (int i=playernum;i<3;i++){
             this.window.setplayerVisibility(i,View.INVISIBLE);
@@ -212,8 +217,15 @@ public class BattleHandler {
 
     private void playerdie(int target){//플레이어 사망시 처리
         window.playerdie(target,friendly[target].getDieimage());
-        if(target==0) end(false);//패배 (수정필요)
+        if(target==0) {end(false);return;}//패배 (수정필요)
         dieplayer++;
+        for (int i=0;i<2;i++){
+            if(DataBase.getsub(i)) {
+                DataBase.setsub(i,false);
+                break;
+            }
+        }
+        //죽은 쫄다구
         attack_per[target]=0;
         set_per();
 
@@ -420,7 +432,9 @@ public class BattleHandler {
         }
         else
         {
-            //도덕성 감소 하기
+            //도덕성감소
+            DataBase.plus_Morality(-20);
+
             for (int i=0;i<mobnum;i++)
             {
                 if(enemy[i].isLive())
@@ -523,29 +537,25 @@ public class BattleHandler {
     private void end(boolean win){
         if(win)
         {
-            //돈수정
-            //포션개수수정
+            //몹 수 수정
+            DataBase.plus_subnum(-playernum);
+            //도덕성
+            DataBase.plus_Morality(5);
+            //돈
+            DataBase.plus_money(random.nextInt(4)+2);
+            //포션개수
+            DataBase.setHp_potion(potion[0]);
+            DataBase.setMp_potion(potion[1]);
             //승리
-
+            DataBase.setWin(true);
         }
         else
         {
             //패배
+            DataBase.setWin(false);
         }
         endfunc.end();
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

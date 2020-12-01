@@ -45,6 +45,13 @@ public class DataBase extends AppCompatActivity {
     // player
     // character
 
+    public static boolean getsub(int target){
+        return sub[target];
+    }
+    public static void setsub(int target,boolean b){
+        sub[target]=b;
+    }
+
     public static int getMorality() {
         return Morality;
     }
@@ -68,6 +75,14 @@ public class DataBase extends AppCompatActivity {
 
     public static void plus_hppotion(int amount){
         hp_potion+=amount;
+    }
+
+    public static void setMp_potion(int mp_potion) {
+        DataBase.mp_potion = mp_potion;
+    }
+
+    public static void setHp_potion(int hp_potion) {
+        DataBase.hp_potion = hp_potion;
     }
 
     public static int getMp_potion() {
