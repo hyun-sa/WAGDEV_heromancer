@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -20,7 +21,7 @@ import com.wagdev.heromancer.R;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    MediaPlayer mediaPlayer;
+    static MediaPlayer mediaPlayer;
     SoundPool soundPool;
     int soundID;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC,0);
         soundID = soundPool.load(this,R.raw.click,1);
         mediaPlayer = MediaPlayer.create(this, R.raw.main_bgm);
+        //현재 설정을 건드려야 모든 사운드 실행(수정필요!!)
         if (!mediaPlayer.isPlaying())
         {
             mediaPlayer.start();
@@ -43,8 +45,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume()
     {
+        //사운드 on/off 변경 후
         super.onResume();
-        if (!mediaPlayer.isPlaying())
+        if(!Setting.soundOnOff){
+            mediaPlayer.pause();
+        }
+        else if (!mediaPlayer.isPlaying() || Setting.soundOnOff)
         {
             mediaPlayer.start();
         }

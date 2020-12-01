@@ -11,9 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.wagdev.heromancer.R;
 
 public class SubMain extends AppCompatActivity {
-
-
     MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +20,11 @@ public class SubMain extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         mediaPlayer = MediaPlayer.create(this, R.raw.in_main_bgm);
-        if (!mediaPlayer.isPlaying())
+        //사운드 on/off 변경된 설정 반영하기 위해
+        if(!Setting.soundOnOff){
+            mediaPlayer.pause();
+        }
+        else if (!mediaPlayer.isPlaying() || Setting.soundOnOff)
         {
             mediaPlayer.start();
         }
@@ -30,8 +33,12 @@ public class SubMain extends AppCompatActivity {
     @Override
     protected void onResume()
     {
+        //사운드 on/off 변경된 설정 반영하기 위해
         super.onResume();
-        if (!mediaPlayer.isPlaying())
+        if(!Setting.soundOnOff){
+            mediaPlayer.pause();
+        }
+        else if (!mediaPlayer.isPlaying() || Setting.soundOnOff)
         {
             mediaPlayer.start();
         }
@@ -62,7 +69,7 @@ public class SubMain extends AppCompatActivity {
 
     public void onButtonFieldClicked(View view) {
         Intent intent = new Intent(getApplicationContext(), battle.class);
-        mediaPlayer.stop();
+        mediaPlayer.pause();
         startActivity(intent);
     }
 }
