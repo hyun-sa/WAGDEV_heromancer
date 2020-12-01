@@ -56,7 +56,7 @@ public class DataBase extends AppCompatActivity {
         return money;
     }
 
-    public void plus_money(int amount){
+    public static void plus_money(int amount){
         money+=amount;
     }
 
@@ -86,6 +86,14 @@ public class DataBase extends AppCompatActivity {
 
     public subplayer get_subplayer(int i){
         return new subplayer(character[i]);
+    }
+
+    public static int[] getPlayerStat(){
+        return player;
+    }
+
+    public static int[][] getSubStat(){
+        return character;
     }
 
     public MagicKnight get_player(int i){
