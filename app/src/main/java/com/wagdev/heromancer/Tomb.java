@@ -21,12 +21,21 @@ public class Tomb extends AppCompatActivity {
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
     }
 
+
     public void warriorbtn(View v){
         if(DataBase.getMorality()<50||DataBase.getSubnum()<2){
             return;
         }
         DataBase.plus_Morality(-50);
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
+        int i;
+        for (i=0;i<2;i++){
+            //빈게나올때까지
+            if(!DataBase.getsub(i)){
+                break;
+            }
+        }
+
     }
     public void Archerbtn(View v){
         if(DataBase.getMorality()<50||DataBase.getSubnum()<2){
@@ -34,6 +43,13 @@ public class Tomb extends AppCompatActivity {
         }
         DataBase.plus_Morality(-50);
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
+        int i;
+        for (i=0;i<2;i++){
+            //빈게나올때까지
+            if(!DataBase.getsub(i)){
+                break;
+            }
+        }
 
     }
     public void Knightbtn(View v){
@@ -42,6 +58,13 @@ public class Tomb extends AppCompatActivity {
         }
         DataBase.plus_Morality(-50);
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
-
+        int i;
+        for (i=0;i<2;i++){
+            //빈게나올때까지
+            if(!DataBase.getsub(i)){
+                break;
+            }
+        }
+        
     }
 }
