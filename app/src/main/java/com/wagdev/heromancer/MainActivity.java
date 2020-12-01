@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final DataBase database = new DataBase();
     //쫄다구 최대수
-    public static int CHARACTER_NUMBER = 2;
+    private static final int CHARACTER_NUMBER = 2;
     //플레이어 스텟 수
-    public static final int PLAYER_STAT = 6;
+    private static final int PLAYER_STAT = 6;
 
     static MediaPlayer mediaPlayer;
     SoundPool soundPool;
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(getFilesDir() + "gamedata.txt", false));
 
-            bw.write("0" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "\n");
+            bw.write("100" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "false" + " " + "false" + " " + "\n");
 
             for(int i=0; i < PLAYER_STAT; i++) {
                 bw.write("0" + " ");

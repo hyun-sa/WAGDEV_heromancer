@@ -1,12 +1,14 @@
 package com.wagdev.heromancer;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wagdev.heromancer.R;
+import com.wagdev.heromancer.DataBase;
 
 public class Store extends AppCompatActivity {
 
@@ -19,7 +21,7 @@ public class Store extends AppCompatActivity {
     }
 
     public void onButtonHPClicked(View view) {
-        //데이터베이스 작업 필요
+        //int money DataBase.getMoney();
     }
 
     public void onButtonMPClicked(View view) {

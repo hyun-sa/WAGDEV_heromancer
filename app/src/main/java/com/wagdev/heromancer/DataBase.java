@@ -31,6 +31,8 @@ public class DataBase extends AppCompatActivity {
     private static int mp_potion=0;
     //도덕성
     private static int Morality=0;
+    //
+    private static boolean[] sub = new boolean[2];
     //전투승리여부
     private static boolean win;
     //플레이어 스텟
@@ -103,8 +105,7 @@ public class DataBase extends AppCompatActivity {
     public void init(Context context){
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(context.getFilesDir() + "gamedata.txt", false));
-
-            bw.write("0" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " "  + "\n");
+            bw.write("100" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "false" + " " + "false" + " " + "\n");
 
             for(int i=0; i < PLAYER_STAT; i++) {
                 bw.write("0" + " ");
@@ -137,6 +138,8 @@ public class DataBase extends AppCompatActivity {
                 hp_potion = Integer.parseInt(readStr[2]);
                 mp_potion = Integer.parseInt(readStr[3]);
                 Morality = Integer.parseInt(readStr[4]);
+                sub[0] = Boolean.parseBoolean(readStr[5]);
+                sub[1] = Boolean.parseBoolean(readStr[6]);
             }
             if((str = br.readLine()) != null){
                 String[] readStr = str.split(" ");
@@ -167,9 +170,7 @@ public class DataBase extends AppCompatActivity {
     public void saveFile(Context context) {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(context.getFilesDir() + "gamedata.txt", false));
-
-            bw.write(money + " " + subnum + " " + hp_potion + " " + mp_potion + " " + Morality + " " + win + " " + "\n");
-
+            bw.write(money + " " + subnum + " " + hp_potion + " " + mp_potion + " " + Morality + " " + sub[0] + " " + sub[1] + " " + "\n");
             for(int i=0; i < 4; i++) {
                 bw.write(player[i] + " ");
             }
