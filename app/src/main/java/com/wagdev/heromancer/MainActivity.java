@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final DataBase database = new DataBase();
     //쫄다구 최대수
-    public static int CHARACTER_NUMBER = 5;
+    public static int CHARACTER_NUMBER = 2;
     //플레이어 스텟 수
-    public static final int PLAYER_STAT = 4;
+    public static final int PLAYER_STAT = 6;
 
     static MediaPlayer mediaPlayer;
     SoundPool soundPool;
@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
@@ -123,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(getFilesDir() + "gamedata.txt", false));
 
-            bw.write("0" + " " + "0" + " " + "0" + " " + "0" + " " + "\n");
+            bw.write("0" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "\n");
 
             for(int i=0; i < PLAYER_STAT; i++) {
                 bw.write("0" + " ");
@@ -131,14 +130,14 @@ public class MainActivity extends AppCompatActivity {
             bw.write("\n");
 
             for(int i=0; i < CHARACTER_NUMBER; i++) {
-                for (int j = 0; j < 6; j++) {
+                for (int j = 0; j < 7; j++) {
                     bw.write("0"+" ");
                 }
                 bw.write("\n");
             }
             bw.close();
 
-            Toast.makeText(this, "생성완료", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "파일생성완료", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }

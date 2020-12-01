@@ -18,28 +18,28 @@ import com.wagdev.heromancer.object.MagicKnight;
 public class DataBase extends AppCompatActivity {
 
     //쫄다구 최대수
-    public static int CHARACTER_NUMBER = 2;
+    private static int CHARACTER_NUMBER = 2;
     //플레이어 스텟 수
-    public static final int PLAYER_STAT = 4;
+    private static final int PLAYER_STAT = 6;
     //돈
-    public static int money=0;
-    //플레이어 스텟
-    public static int[] player = new int[6];
+    private static int money=0;
     //쫄따구 수
-    public static int subnum=0;
-    //쫄따구 스텟(인덱스6은 몹의 유형을 저장
-    public static int[][] character = new int[CHARACTER_NUMBER][7];
+    private static int subnum=0;
     //hp포션개수
-    public static int hp_potion=0;
+    private static int hp_potion=0;
     //mp포션개수
-    public static int mp_potion=0;
+    private static int mp_potion=0;
     //도덕성
     private static int Morality=0;
     //전투승리여부
     private static boolean win;
+    //플레이어 스텟
+    private static int[] player = new int[PLAYER_STAT];
+    //쫄따구 스텟(인덱스6은 몹의 유형을 저장
+    private static int[][] character = new int[CHARACTER_NUMBER][7];
 
 
-    // money subnum hp_potion mp_potion
+    // money subnum hp_potion mp_potion Morality win
     // player
     // character
 
@@ -104,7 +104,7 @@ public class DataBase extends AppCompatActivity {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(context.getFilesDir() + "gamedata.txt", false));
 
-            bw.write("0" + " " + "0" + " " + "0" + " " + "0" + " " + "\n");
+            bw.write("0" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " "  + "\n");
 
             for(int i=0; i < PLAYER_STAT; i++) {
                 bw.write("0" + " ");
@@ -136,13 +136,12 @@ public class DataBase extends AppCompatActivity {
                 subnum = Integer.parseInt(readStr[1]);
                 hp_potion = Integer.parseInt(readStr[2]);
                 mp_potion = Integer.parseInt(readStr[3]);
+                Morality = Integer.parseInt(readStr[4]);
             }
             if((str = br.readLine()) != null){
                 String[] readStr = str.split(" ");
-                Log.d("iiiiiiii", str);
                 for (int i=0; i<readStr.length;i++) {
                     player[i] = Integer.parseInt(readStr[i]);
-                    Log.d("iiiiii456465", i+" ");
                 }
             }
 
@@ -169,7 +168,7 @@ public class DataBase extends AppCompatActivity {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(context.getFilesDir() + "gamedata.txt", false));
 
-            bw.write(money + " " + subnum + " " + hp_potion + " " + mp_potion + " " + "\n");
+            bw.write(money + " " + subnum + " " + hp_potion + " " + mp_potion + " " + Morality + " " + win + " " + "\n");
 
             for(int i=0; i < 4; i++) {
                 bw.write(player[i] + " ");
