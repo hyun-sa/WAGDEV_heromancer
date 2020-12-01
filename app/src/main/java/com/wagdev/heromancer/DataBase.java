@@ -48,35 +48,35 @@ public class DataBase extends AppCompatActivity {
     // character
 
     public static boolean getsub(int target){
-        return sub[target];
+        return DataBase.sub[target];
     }
     public static void setsub(int target,boolean b){
-        sub[target]=b;
+        DataBase.sub[target]=b;
     }
 
     public static int getMorality() {
-        return Morality;
+        return DataBase.Morality;
     }
 
     public static void plus_Morality(int amount){
-        Morality+=amount;
-        if(Morality>100) Morality=100;
+        DataBase.Morality+=amount;
+        if(DataBase.Morality>100) DataBase.Morality=100;
     }
 
     public static int getMoney() {
-        return money;
+        return DataBase.money;
     }
 
     public static void plus_money(int amount){
-        money+=amount;
+        DataBase.money+=amount;
     }
 
     public static int getHp_potion() {
-        return hp_potion;
+        return DataBase.hp_potion;
     }
 
     public static void plus_hppotion(int amount){
-        hp_potion+=amount;
+        DataBase.hp_potion+=amount;
     }
 
     public static void setMp_potion(int mp_potion) {
@@ -88,19 +88,19 @@ public class DataBase extends AppCompatActivity {
     }
 
     public static int getMp_potion() {
-        return mp_potion;
+        return DataBase.mp_potion;
     }
 
     public static void plus_mppotion(int amount){
-        mp_potion+=amount;
+        DataBase.mp_potion+=amount;
     }
 
     public static int getSubnum() {
-        return subnum;
+        return DataBase.subnum;
     }
 
     public static void plus_subnum(int amount){
-        subnum+=amount;
+        DataBase.subnum+=amount;
     }
 
 
@@ -110,7 +110,7 @@ public class DataBase extends AppCompatActivity {
     }
 
     public static int[][] getSubStat(){
-        return character;
+        return DataBase.character;
     }
 
     public static void setPlayer(int[] player) {
@@ -118,7 +118,8 @@ public class DataBase extends AppCompatActivity {
     }
 
     public static void setCharacter(int target,int[] character) {
-        DataBase.character[target] = character;
+        for(int i=0;i<6;i++)
+            DataBase.character[target][i] = character[i];
     }
 
     public static subplayer get_subplayer(int i){
@@ -130,7 +131,7 @@ public class DataBase extends AppCompatActivity {
     }
 
     public static boolean isWin() {
-        return win;
+        return DataBase.win;
     }
 
     public static void setWin(boolean win) {
