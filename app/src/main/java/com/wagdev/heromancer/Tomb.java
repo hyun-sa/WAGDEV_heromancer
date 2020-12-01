@@ -42,7 +42,7 @@ public class Tomb extends AppCompatActivity {
         if(i==-1) return;
 
         DataBase.plus_Morality(-50);
-        t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
+        //t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
         DataBase.plus_subnum(1);
 
         int[] stat={100,100,45,30,20,15,1};
@@ -58,7 +58,7 @@ public class Tomb extends AppCompatActivity {
         if(i==-1) return;
 
         DataBase.plus_Morality(-50);
-        t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
+        //t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
         DataBase.plus_subnum(1);
 
         int[] stat={100,100,45,30,20,15,2};
@@ -74,7 +74,7 @@ public class Tomb extends AppCompatActivity {
         if(i==-1) return;
 
         DataBase.plus_Morality(-50);
-        t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
+        //t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
         DataBase.plus_subnum(1);
 
         int[] stat={100,100,45,30,20,15,0};
