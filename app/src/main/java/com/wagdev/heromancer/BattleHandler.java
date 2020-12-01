@@ -75,7 +75,6 @@ public class BattleHandler {
             if(i<3) num = random.nextInt(60);
             else num = random.nextInt(100);
 
-            this.window.test(Integer.toString(num));
             if(num< mobper[0]) {
                 enemy[i] = new Knight();
                 this.window.setmobimage(i, R.drawable.knight);
@@ -98,8 +97,8 @@ public class BattleHandler {
         for (int i=1;i<playernum;i++)
         {
             for(int j=i-1;j<2;j++) {
-                if(DataBase.getsub(i)) {
-                    friendly[i] = DataBase.get_subplayer(i);//데이터 베이스에서 생성되게
+                if(DataBase.getsub(j)) {
+                    friendly[i] = DataBase.get_subplayer(j);//데이터 베이스에서 생성되게
                     switch (friendly[i].getSubplayer_kind()) {
                         case 0:
                             this.window.setPlayerimage(i, R.drawable.playerknight);

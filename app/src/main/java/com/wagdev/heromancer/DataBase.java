@@ -118,11 +118,12 @@ public class DataBase extends AppCompatActivity {
     }
 
     public static void setCharacter(int target,int[] character) {
-        DataBase.character[target] = character;
+        for(int i=0;i<6;i++)
+            DataBase.character[target][i] = character[i];
     }
 
     public static subplayer get_subplayer(int i){
-        return new subplayer(DataBase.character[i]);
+        return new subplayer(character[i]);
     }
 
     public static MagicKnight get_player(){
