@@ -45,6 +45,8 @@ public class Tomb extends AppCompatActivity {
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
         DataBase.plus_subnum(1);
 
+        int[] stat={100,100,45,30,20,15,1};
+        DataBase.setCharacter(i,stat);
     }
 
     public void Archerbtn(View v){
@@ -59,6 +61,8 @@ public class Tomb extends AppCompatActivity {
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
         DataBase.plus_subnum(1);
 
+        int[] stat={100,100,45,30,20,15,2};
+        DataBase.setCharacter(i,stat);
     }
 
     public void Knightbtn(View v){
@@ -73,6 +77,7 @@ public class Tomb extends AppCompatActivity {
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
         DataBase.plus_subnum(1);
 
-
+        int[] stat={100,100,45,30,20,15,0};
+        DataBase.setCharacter(i,stat);
     }
 }
