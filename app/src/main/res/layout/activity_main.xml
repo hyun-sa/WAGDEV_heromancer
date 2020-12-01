@@ -19,15 +19,17 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.4"/>
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Heromancer"
-            android:textSize="65dp"
-            tools:layout_editor_absoluteX="283dp"
-            tools:layout_editor_absoluteY="144dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:adjustViewBounds="true"
+
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/logo" />
+
         <View
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -50,8 +52,8 @@
             android:id="@+id/button1"
             android:layout_width="155dp"
             android:layout_height="78dp"
+            android:background="@drawable/setting"
             android:onClick="ClicktoSetting"
-            android:text="설정"
             android:textSize="20dp" />
         <View
             android:layout_width="0dp"
@@ -62,9 +64,9 @@
             android:id="@+id/button2"
             android:layout_width="155dp"
             android:layout_height="79dp"
-            android:textSize="20dp"
-            android:text="게임시작"
-            android:onClick="OnClickHandler"/>
+            android:background="@drawable/start"
+            android:onClick="OnClickHandler"
+            android:textSize="20dp" />
 
         <View
             android:layout_width="0dp"
@@ -75,8 +77,8 @@
             android:id="@+id/button3"
             android:layout_width="155dp"
             android:layout_height="79dp"
+            android:background="@drawable/exit"
             android:onClick="onClick_finish"
-            android:text="게임종료"
             android:textSize="20dp" />
 
         <View
