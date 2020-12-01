@@ -91,8 +91,13 @@ public class DataBase extends AppCompatActivity {
         return new MagicKnight(player);
     }
 
+    public static boolean isWin() {
+        return win;
+    }
 
-
+    public static void setWin(boolean win) {
+        DataBase.win = win;
+    }
 
     public void init(Context context){
         try {
