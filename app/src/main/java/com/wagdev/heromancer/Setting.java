@@ -2,6 +2,7 @@ package com.wagdev.heromancer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -16,7 +17,7 @@ import android.widget.Switch;
 import com.wagdev.heromancer.R;
 
 public class Setting extends AppCompatActivity {
-    public static boolean soundOnOff;     //스위치 on/off 여부 저장
+    public static boolean soundOnOff = true;     //스위치 on/off 여부 저장
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class Setting extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
         //sound on/off 관련
-        Switch sound =(Switch)findViewById(R.id.soundSwitch);
+        @SuppressLint("UseSwitchCompatOrMaterialCode") Switch sound =(Switch)findViewById(R.id.soundSwitch);
         sound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
