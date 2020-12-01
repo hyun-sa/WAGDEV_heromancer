@@ -1,5 +1,6 @@
 package com.wagdev.heromancer;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -25,27 +26,28 @@ import java.util.Random;
 
 public class BattleHandler {
     //기본리소스
-    private Mob[] enemy;
-    private  Player[] friendly;
-    private ChatUI chatui;
-    private BattleWindow window;
-    private Random random=new Random();
-    private Drawable d;
-    private clickevent c;
-    private battle endfunc;
+    private final Mob[] enemy;
+    private final Player[] friendly;
+    private final ChatUI chatui;
+    private final BattleWindow window;
+    private final Random random=new Random();
+    private final Drawable d;
+    private final clickevent c;
+    private final battle endfunc;
 
     //상태
     private int turn=0;//0~maxturn-1까지만
-    private int maxturn;
+    private final int maxturn;
     private int dieplayer=0;
     private int diemob=0;
-    private Handler handler=new Handler();
+    private final Handler handler=new Handler();
     private int totalTurn=1;
-    private int[] potion={0,0};//0:hp, 1:mp
+    private final int[] potion={0,0};//0:hp, 1:mp
 
 
-    private int mobnum;
-    private int playernum;
+    private final int mobnum;
+    private final int playernum;
+    @SuppressLint("UseCompatLoadingForDrawables")
     public BattleHandler(LinearLayout chat, ConstraintLayout window, Context con, clickevent c){
         random.setSeed(System.currentTimeMillis());
         //이곳에서 맵같은걸로 초기화

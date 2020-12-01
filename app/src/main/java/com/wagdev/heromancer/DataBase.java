@@ -22,19 +22,19 @@ public class DataBase extends AppCompatActivity {
     //플레이어 스텟 수
     public static final int PLAYER_STAT = 4;
     //돈
-    public static int money;
+    public static int money=0;
     //플레이어 스텟
-    public static int[] player = new int[4];
+    public static int[] player = new int[6];
     //쫄따구 수
     public static int subnum=0;
-    //쫄따구 스텟
-    public static int[][] character = new int[CHARACTER_NUMBER][6];
+    //쫄따구 스텟(인덱스6은 몹의 유형을 저장
+    public static int[][] character = new int[CHARACTER_NUMBER][7];
     //hp포션개수
-    public static int hp_potion;
+    public static int hp_potion=0;
     //mp포션개수
-    public static int mp_potion;
+    public static int mp_potion=0;
     //도덕성
-    private static int Morality;
+    private static int Morality=0;
     //전투승리여부
     private static boolean win;
 
@@ -49,6 +49,7 @@ public class DataBase extends AppCompatActivity {
 
     public void plus_Morality(int amount){
         Morality+=amount;
+        if(Morality>100) Morality=100;
     }
 
     public static int getMoney() {
@@ -91,8 +92,13 @@ public class DataBase extends AppCompatActivity {
         return new MagicKnight(player);
     }
 
+    public static boolean isWin() {
+        return win;
+    }
 
-
+    public static void setWin(boolean win) {
+        DataBase.win = win;
+    }
 
     public void init(Context context){
         try {
