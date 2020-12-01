@@ -68,7 +68,7 @@ public class Tomb extends AppCompatActivity {
 
         int i=selectnum();
         if(i==-1) return;
-        
+
         DataBase.plus_Morality(-50);
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
         DataBase.plus_subnum(1);

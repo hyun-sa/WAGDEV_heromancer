@@ -115,6 +115,14 @@ public class DataBase extends AppCompatActivity {
         return character;
     }
 
+    public static void setPlayer(int[] player) {
+        DataBase.player = player;
+    }
+
+    public static void setCharacter(int target,int[] character) {
+        DataBase.character[target] = character;
+    }
+
     public static MagicKnight get_player(){
         return new MagicKnight();
     }
