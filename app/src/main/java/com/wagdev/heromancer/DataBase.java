@@ -106,6 +106,14 @@ public class DataBase extends AppCompatActivity {
     public static subplayer get_subplayer(int i){
         return new subplayer();
     }
+    
+    public static int[] getPlayerStat(){
+        return player;
+    }
+
+    public static int[][] getSubStat(){
+        return character;
+    }
 
     public static MagicKnight get_player(){
         return new MagicKnight();
