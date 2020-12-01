@@ -7,8 +7,6 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.wagdev.heromancer.object.MagicKnight;
-import com.wagdev.heromancer.object.subplayer;
 
 import com.wagdev.heromancer.R;
 
@@ -16,14 +14,6 @@ import java.util.Random;
 import java.util.zip.DataFormatException;
 
 public class Training extends AppCompatActivity {
-    private int traingCost;
-    private int randomStat;
-    private int morality = DataBase.getMorality();
-    private int money = DataBase.getMoney();
-    private int subnum = DataBase.getSubnum();
-    private int[] player = DataBase.getPlayerStat();
-    private int[][] subplayer = DataBase.getSubStat();
-    TextView text1 = (TextView)findViewById(R.id.trainingText);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +24,17 @@ public class Training extends AppCompatActivity {
     }
 
     public void onClickTraining(View view){
-        traingCost = CheckTraingCost();
+        int traingCost = CheckTraingCost();
+        int money = DataBase.getMoney();
+        TextView text1 = (TextView)findViewById(R.id.trainingText);
+        TextView text2 = (TextView)findViewById(R.id.moneytext);
 
         if(money < traingCost)
             text1.setText("보유한 골드가 부족합니다.");
         else {
-            //training 가능하므로 골드 차감
             DataBase.plus_money(-traingCost);
-            money = DataBase.getMoney();
+            money -= traingCost;
+            text2.setText(money+" ");
             traingStart();
         }
 
@@ -49,6 +42,8 @@ public class Training extends AppCompatActivity {
 
     //도덕성에 따른 훈련 비용 결정
     public int CheckTraingCost(){
+        int morality = DataBase.getMorality();
+
         if(morality < 0)
             return 8;
         else if(morality > 100)
@@ -59,8 +54,12 @@ public class Training extends AppCompatActivity {
 
     //랜덤 스탯 생성 후 각 아군의 스탯에 plus
     public void traingStart(){
-        randomStat = (int)(Math.random()*3)+1;
+        int randomStat = (int)(Math.random()*3)+1;
+        int subnum = DataBase.getSubnum();
+        int[] player = DataBase.getPlayerStat();
+        int[][] subplayer = DataBase.getSubStat();
 
+        TextView text1 = (TextView)findViewById(R.id.trainingText);
         text1.setText("모든 아군의 스탯을 " +randomStat+"증가합니다.");
 
         //주인공 스탯
