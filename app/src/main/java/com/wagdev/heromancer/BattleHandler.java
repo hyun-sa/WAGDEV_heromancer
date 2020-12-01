@@ -66,7 +66,7 @@ public class BattleHandler {
         d=c.getResources().getDrawable(R.color.강제처형);
         this.c=c;
         endfunc=(battle)con;
-        this.window.test("123: "+Integer.toString(playernum));
+        //this.window.test("123: "+Integer.toString(playernum));
 
 
         int num;
@@ -99,6 +99,7 @@ public class BattleHandler {
             for(int j=i-1;j<2;j++) {
                 if(DataBase.getsub(j)) {
                     friendly[i] = DataBase.get_subplayer(j);//데이터 베이스에서 생성되게
+                    //this.window.test("123: "+Integer.toString(friendly[i].getSubplayer_kind()));
                     switch (friendly[i].getSubplayer_kind()) {
                         case 0:
                             this.window.setPlayerimage(i, R.drawable.playerknight);

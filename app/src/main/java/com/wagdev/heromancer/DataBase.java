@@ -118,8 +118,7 @@ public class DataBase extends AppCompatActivity {
     }
 
     public static void setCharacter(int target,int[] character) {
-        for(int i=0;i<6;i++)
-            DataBase.character[target][i] = character[i];
+        DataBase.character[target] = character;
     }
 
     public static subplayer get_subplayer(int i){
