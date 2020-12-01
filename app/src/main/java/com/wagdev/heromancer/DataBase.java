@@ -30,7 +30,7 @@ public class DataBase extends AppCompatActivity {
     //mp포션개수
     private static int mp_potion=0;
     //도덕성
-    private static int Morality=0;
+    private static int Morality;
     //
     private static boolean[] sub = new boolean[2];
     //전투승리여부
@@ -122,7 +122,7 @@ public class DataBase extends AppCompatActivity {
     public void init(Context context){
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(context.getFilesDir() + "gamedata.txt", false));
-
+            //          money         subnum   hp_potion    mp_potion   Morality        sub1            sub2
             bw.write("100" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "false" + " " + "false" + " " + "\n");
 
             for(int i=0; i < PLAYER_STAT; i++) {
@@ -189,7 +189,7 @@ public class DataBase extends AppCompatActivity {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(context.getFilesDir() + "gamedata.txt", false));
             bw.write(money + " " + subnum + " " + hp_potion + " " + mp_potion + " " + Morality + " " + sub[0] + " " + sub[1] + " " + "\n");
-            for(int i=0; i < 4; i++) {
+            for(int i=0; i < PLAYER_STAT; i++) {
                 bw.write(player[i] + " ");
             }
             bw.write("\n");
@@ -204,6 +204,7 @@ public class DataBase extends AppCompatActivity {
 
             Toast.makeText(this, "저장완료", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
+            Toast.makeText(context, "파일저장실패", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }

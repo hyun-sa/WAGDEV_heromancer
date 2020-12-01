@@ -12,6 +12,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -89,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
                 init();
                 database.loadFile(getBaseContext());
-                database.saveFile(getBaseContext());
                 Intent intent = new Intent(getApplicationContext(), SubMain.class);
                 startActivity(intent);
                 mediaPlayer.pause();
@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
     {
         soundPool.play(soundID,1f,1f,0,0,1f);
         mediaPlayer.pause();
+        database.saveFile(getBaseContext());
         ActivityCompat.finishAffinity(this);
         android.os.Process.killProcess(android.os.Process.myPid());
     }
@@ -121,12 +122,11 @@ public class MainActivity extends AppCompatActivity {
     public void init(){
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(getFilesDir() + "gamedata.txt", false));
+            //          money         subnum   hp_potion    mp_potion   Morality        sub1            sub2
+            bw.write("100" + " " + "0" + " " + "0" + " " + "0" + " " + "50" + " " + "false" + " " + "false" + " " + "\n");
 
-            bw.write("100" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "false" + " " + "false" + " " + "\n");
-
-            for(int i=0; i < PLAYER_STAT; i++) {
-                bw.write("0" + " ");
-            }
+            //          0:최대hp,   1:최대mp,   2:공격력,    3:마력,     4:방어력,  5:마저
+            bw.write("0" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " ");
             bw.write("\n");
 
             for(int i=0; i < CHARACTER_NUMBER; i++) {
@@ -140,12 +140,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "파일생성완료", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
+
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        database.saveFile(getBaseContext());
-    }
 }
