@@ -17,10 +17,20 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.wagdev.heromancer.R;
+import com.wagdev.heromancer.DataBase;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final DataBase database = new DataBase();
+    //쫄다구 최대수
+    public static int CHARACTER_NUMBER = 5;
+    //플레이어 스텟 수
+    public static final int PLAYER_STAT = 4;
+
     static MediaPlayer mediaPlayer;
     SoundPool soundPool;
     int soundID;
@@ -77,12 +87,13 @@ public class MainActivity extends AppCompatActivity {
                 String[] items = getResources().getStringArray(R.array.LAN);
                 Toast.makeText(getApplicationContext(),items[pos],Toast.LENGTH_LONG).show();
 
-
+                init();
+                database.loadFile(getBaseContext());
+                database.saveFile(getBaseContext());
                 Intent intent = new Intent(getApplicationContext(), SubMain.class);
                 startActivity(intent);
                 mediaPlayer.pause();
-                //데이터 베이스 불러오기 필요
-                //없으면 생성 있으면 그대로
+
             }
         });
 
@@ -105,5 +116,37 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.pause();
         ActivityCompat.finishAffinity(this);
         android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+    //파일 초기화
+    public void init(){
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(getFilesDir() + "gamedata.txt", false));
+
+            bw.write("0" + " " + "0" + " " + "0" + " " + "0" + " " + "\n");
+
+            for(int i=0; i < PLAYER_STAT; i++) {
+                bw.write("0" + " ");
+            }
+            bw.write("\n");
+
+            for(int i=0; i < CHARACTER_NUMBER; i++) {
+                for (int j = 0; j < 6; j++) {
+                    bw.write("0"+" ");
+                }
+                bw.write("\n");
+            }
+            bw.close();
+
+            Toast.makeText(this, "생성완료", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        database.saveFile(getBaseContext());
     }
 }
