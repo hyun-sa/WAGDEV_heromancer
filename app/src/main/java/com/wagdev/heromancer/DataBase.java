@@ -36,9 +36,11 @@ public class DataBase extends AppCompatActivity {
     //전투승리여부
     private static boolean win;
     //플레이어 스텟
+    //0:최대hp,1:최대mp,2:공격력,3:마력,4:방어력,5:마저
     private static int[] player = new int[PLAYER_STAT];
     //쫄따구 스텟(인덱스6은 몹의 유형을 저장
-    private static int[][] character = new int[CHARACTER_NUMBER][7];
+    //0:최대hp,1:최대mp,2:공격력,3:마력,4:방어력,5:마저,6:몹종류
+    private static int[][] character = new int[CHARACTER_NUMBER][7];//
 
 
     // money subnum hp_potion mp_potion Morality win
