@@ -103,8 +103,26 @@ public class DataBase extends AppCompatActivity {
         subnum+=amount;
     }
 
+
+    
+    public static int[] getPlayerStat(){
+        return player;
+    }
+
+    public static int[][] getSubStat(){
+        return character;
+    }
+
+    public static void setPlayer(int[] player) {
+        DataBase.player = player;
+    }
+
+    public static void setCharacter(int target,int[] character) {
+        DataBase.character[target] = character;
+    }
+
     public static subplayer get_subplayer(int i){
-        return new subplayer();
+        return new subplayer(character[i]);
     }
 
     public static MagicKnight get_player(){
