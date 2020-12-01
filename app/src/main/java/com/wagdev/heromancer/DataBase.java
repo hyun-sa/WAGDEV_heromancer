@@ -122,6 +122,7 @@ public class DataBase extends AppCompatActivity {
     public void init(Context context){
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(context.getFilesDir() + "gamedata.txt", false));
+
             bw.write("100" + " " + "0" + " " + "0" + " " + "0" + " " + "0" + " " + "false" + " " + "false" + " " + "\n");
 
             for(int i=0; i < PLAYER_STAT; i++) {
