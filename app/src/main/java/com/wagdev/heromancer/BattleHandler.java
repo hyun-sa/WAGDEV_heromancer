@@ -123,8 +123,8 @@ public class BattleHandler {
         }
 
         //포션개수 입력수정필요
-        potion[0]=3;
-        potion[1]=3;
+        potion[0]=DataBase.getHp_potion();
+        potion[1]=DataBase.getMp_potion();
     }
 
 
