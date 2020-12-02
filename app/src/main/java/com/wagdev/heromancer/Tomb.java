@@ -65,7 +65,6 @@ public class Tomb extends AppCompatActivity {
         DataBase.setCharacter(i,stat);
     }
 
-    private int[] stat={200,0,60,0,10,15,0};
     public void Knightbtn(View v){
         if(DataBase.getMorality()<50||DataBase.getSubnum()>=2){
             return;
@@ -78,7 +77,7 @@ public class Tomb extends AppCompatActivity {
         t.setText("도덕성: "+Integer.toString(DataBase.getMorality()));
         DataBase.plus_subnum(1);
 
-
+        int[] stat={200,0,60,0,10,15,0};
         DataBase.setCharacter(i,stat);
     }
 }

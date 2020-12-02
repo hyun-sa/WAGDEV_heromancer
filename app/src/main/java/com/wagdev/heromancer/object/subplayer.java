@@ -13,7 +13,7 @@ public class subplayer extends Player{
         Mag=30;       //마력
         Def=20;       //방어력
         MRt=15;       //마법 저항력
-        subplayer_kind=0;//몹종류
+        subplayer_kind=1;//몹종류
     }
 
     public subplayer(int[] stat){
