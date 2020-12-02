@@ -137,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
             }
             bw.close();
 
-            Toast.makeText(this, "파일생성완료", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
 
