@@ -32,7 +32,7 @@ public class Store extends AppCompatActivity {
         int money = DataBase.getMoney();
         int morality = DataBase.getMorality();
 
-        if (money - (35 - (int)Math.round(0.3*morality)) > 0){
+        if (money - (35 - (int)Math.round(0.3*morality)) >= 0){
             DataBase.plus_money(-(35 - (int)Math.round(0.3*morality)));
             money  = money-(35 - (int)Math.round(0.3*morality));
             DataBase.plus_hppotion(1);
@@ -48,7 +48,7 @@ public class Store extends AppCompatActivity {
         int money = DataBase.getMoney();
         int morality = DataBase.getMorality();
 
-        if (money - (35 - (int)Math.round(0.3*morality)) > 0){
+        if (money - (35 - (int)Math.round(0.3*morality)) >= 0){
             DataBase.plus_money(-(35 - (int)Math.round(0.3*morality)));
             money  = money-(35 - (int)Math.round(0.3*morality));
             DataBase.plus_mppotion(1);

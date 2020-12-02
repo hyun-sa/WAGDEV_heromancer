@@ -12,14 +12,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.wagdev.heromancer.object.Archer;
 import com.wagdev.heromancer.object.Knight;
-import com.wagdev.heromancer.object.MagicKnight;
 import com.wagdev.heromancer.object.Mob;
 import com.wagdev.heromancer.object.Player;
 import com.wagdev.heromancer.object.Warrior;
 import com.wagdev.heromancer.object.data.Damage;
 import com.wagdev.heromancer.object.data.Heal;
-import com.wagdev.heromancer.R;
-import com.wagdev.heromancer.object.subplayer;
 
 import java.util.Random;
 
@@ -162,7 +159,6 @@ public class BattleHandler {
                 }
             }
 
-            window.test(Integer.toString(attack_per[0])+", "+Integer.toString(attack_per[1])+", "+Integer.toString(attack_per[2]));
             PlayerAttack(target);
 
 
