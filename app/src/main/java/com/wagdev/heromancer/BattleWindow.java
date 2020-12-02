@@ -8,12 +8,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.wagdev.heromancer.R;
 
 public class BattleWindow {
     private ImageButton[] mob=new ImageButton[5];
@@ -167,10 +165,11 @@ public class BattleWindow {
         layout.setForeground(d);
     }
 
-    //private int testcount=0;
+    //디버기을 위한함수
+    /*//private int testcount=0;
     public void test(String a){
         //testcount++;
         ((TextView)layout.findViewById(R.id.test)).setText(a);
-    }
+    }*/
 
 }
