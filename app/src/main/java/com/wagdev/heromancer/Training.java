@@ -18,8 +18,11 @@ public class Training extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int money = DataBase.getMoney();
         setContentView(R.layout.training);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        TextView text2 = (TextView)findViewById(R.id.moneytext);
+        text2.setText(money+"");
         getSupportActionBar().hide();
     }
 
@@ -65,9 +68,16 @@ public class Training extends AppCompatActivity {
         //주인공 스탯
         for(int i=0;i<6;i++)
             player[i]+= randomStat;
+        DataBase.setPlayer(player);
+
         //아군 스탯 증가
-        for(int j=0;j<subnum;j++)
+        for(int j=0;j<subnum;j++){
             for(int k=0;k<6;k++)
                 subplayer[j][k]+= randomStat;
+            DataBase.setCharacter(j, subplayer[j]);
+        }
+
+
+
     }
 }
