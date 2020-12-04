@@ -144,4 +144,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void onManualClicked(View view) {
+        Intent intent = new Intent(this, Manual.class);
+        startActivityForResult(intent, 1);
+
+    }
 }

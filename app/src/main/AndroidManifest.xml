@@ -33,6 +33,9 @@
             android:screenOrientation="landscape"/>
         <activity android:name="com.wagdev.heromancer.Training"
             android:screenOrientation="landscape"/>
+        <activity android:name="com.wagdev.heromancer.Manual"
+            android:theme="@style/Theme.MyDialog"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
