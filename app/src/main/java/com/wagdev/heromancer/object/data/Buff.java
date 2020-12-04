@@ -6,7 +6,7 @@ public class Buff implements Comparable<Buff>{
     public double Def;       //방어력
     public double MRt;       //마법 저항력
 
-    public int end_turn;
+    public int end_turn;      //종료턴
 
     public Buff(int turn,double atk,double mag,double Def, double mrt){
         this.end_turn=turn;

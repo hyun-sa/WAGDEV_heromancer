@@ -2,7 +2,6 @@ package com.wagdev.heromancer;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -156,7 +155,6 @@ public class DataBase extends AppCompatActivity {
             }
             bw.close();
 
-            Toast.makeText(this, "생성완료", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -196,7 +194,6 @@ public class DataBase extends AppCompatActivity {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(this, "File not Found", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -220,9 +217,7 @@ public class DataBase extends AppCompatActivity {
             }
             bw.close();
 
-            Toast.makeText(this, "저장완료", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
-            Toast.makeText(context, "파일저장실패", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
