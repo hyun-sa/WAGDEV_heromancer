@@ -540,24 +540,24 @@ public class BattleHandler {
 
         if(win)
         {
-            //몹 수 수정
-            DataBase.plus_subnum(-dieplayer);
             //도덕성
             DataBase.plus_Morality(5);
             //돈
             DataBase.plus_money(random.nextInt(4)+2);
-            //포션개수
-            DataBase.setHp_potion(potion[0]);
-            DataBase.setMp_potion(potion[1]);
-            //승리
-            DataBase.setWin(true);
         }
         else
         {
-            //패배
-            DataBase.setWin(false);
-
+            //도덕성
+            DataBase.plus_Morality(-5);
+            //돈
+            DataBase.plus_money(random.nextInt(-4)-2);
         }
+        //플레이어 수 수정
+        DataBase.plus_subnum(-dieplayer);
+
+        //포션개수
+        DataBase.setHp_potion(potion[0]);
+        DataBase.setMp_potion(potion[1]);
         endfunc.end();
     }
 

@@ -71,8 +71,5 @@ public class SubMain extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), battle.class);
         mediaPlayer.pause();
         startActivity(intent);
-        if(!DataBase.isWin()){
-            onBackPressed();
-        }
     }
 }
