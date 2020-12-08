@@ -100,12 +100,15 @@ public class BattleHandler {
                     switch (friendly[i].getSubplayer_kind()) {
                         case 0:
                             this.window.setPlayerimage(i, R.drawable.playerknight);
+                            friendly[i].setDieimage(R.drawable.playerknightdie);
                             break;
                         case 1:
                             this.window.setPlayerimage(i, R.drawable.playerwarrior);
+                            friendly[i].setDieimage(R.drawable.playerwarriordie);
                             break;
                         case 2:
                             this.window.setPlayerimage(i, R.drawable.playerarcher);
+                            friendly[i].setDieimage(R.drawable.playerarcherdie);
                             break;
                         default:
                             break;
@@ -215,8 +218,8 @@ public class BattleHandler {
     }
 
     private void playerdie(int target){//플레이어 사망시 처리
-        window.playerdie(target,friendly[target].getDieimage());
         if(target==0) {end(false);return;}//패배 (수정필요)
+        window.playerdie(target,friendly[target].getDieimage());
         dieplayer++;
         for (int i=0;i<2;i++){
             if(DataBase.getsub(i)) {
@@ -534,6 +537,7 @@ public class BattleHandler {
     }
 
     private void end(boolean win){
+
         if(win)
         {
             //몹 수 수정

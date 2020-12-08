@@ -26,6 +26,9 @@ abstract class Entity {
     protected PriorityQueue<Buff> hasbuff;//버프 디버프 통합관리
 
 
+    public void setDieimage(int dieimage) {
+        Dieimage = dieimage;
+    }
 
     public Entity(){
         hasbuff=new PriorityQueue<>();
