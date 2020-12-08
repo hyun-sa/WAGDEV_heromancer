@@ -39,14 +39,14 @@ public class BattleHandler {
     private Handler handler=new Handler();
     private int totalTurn=1;
     private int[] potion={0,0};//0:hp, 1:mp
+    private static boolean isend;
 
 
     private int mobnum;
     private int playernum;
     public BattleHandler(LinearLayout chat, ConstraintLayout window, Context con, clickevent c){
         random.setSeed(System.currentTimeMillis());
-        //이곳에서 맵같은걸로 초기화
-        //임시제작
+        this.isend=false;
         playernum=DataBase.getSubnum()+1;
         mobnum=random.nextInt(4)+2;
 
@@ -537,7 +537,8 @@ public class BattleHandler {
     }
 
     private void end(boolean win){
-
+        if(isend) return;
+        isend=true;
         if(win)
         {
             //도덕성
@@ -550,7 +551,7 @@ public class BattleHandler {
             //도덕성
             DataBase.plus_Morality(-5);
             //돈
-            DataBase.plus_money(-random.nextInt(4)+2);
+            DataBase.plus_money(random.nextInt(4)-6);
         }
         //플레이어 수 수정
         DataBase.plus_subnum(-dieplayer);

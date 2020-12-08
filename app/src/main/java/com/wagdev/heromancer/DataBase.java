@@ -32,8 +32,6 @@ public class DataBase extends AppCompatActivity {
     private static int Morality;
     //
     private static boolean[] sub = new boolean[2];
-    //전투승리여부
-    private static boolean win;
     //플레이어 스텟
     //0:최대hp,1:최대mp,2:공격력,3:마력,4:방어력,5:마저
     private static int[] player = new int[PLAYER_STAT];
@@ -126,14 +124,6 @@ public class DataBase extends AppCompatActivity {
 
     public static MagicKnight get_player(){
         return new MagicKnight();
-    }
-
-    public static boolean isWin() {
-        return DataBase.win;
-    }
-
-    public static void setWin(boolean win) {
-        DataBase.win = win;
     }
 
     public void init(Context context){
