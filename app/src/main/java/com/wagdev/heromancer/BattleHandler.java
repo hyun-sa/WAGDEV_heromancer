@@ -552,6 +552,7 @@ public class BattleHandler {
         {
             //패배
             DataBase.setWin(false);
+
         }
         endfunc.end();
     }
