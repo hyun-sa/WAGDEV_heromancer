@@ -550,7 +550,7 @@ public class BattleHandler {
             //도덕성
             DataBase.plus_Morality(-5);
             //돈
-            DataBase.plus_money(random.nextInt(-4)-2);
+            DataBase.plus_money(-random.nextInt(4)+2);
         }
         //플레이어 수 수정
         DataBase.plus_subnum(-dieplayer);
