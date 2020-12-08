@@ -17,9 +17,9 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/menual"
+            android:id="@+id/manual"
             android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_height="56dp"
             android:background="@drawable/manual"
             android:onClick="onManualClicked" />
 
